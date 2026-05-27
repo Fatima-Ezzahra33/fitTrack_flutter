@@ -292,13 +292,13 @@ class _MealScheduleScreenState extends State<MealScheduleScreen> {
           ),
           borderData: FlBorderData(show: false),
           minX: 0,
-          maxX: (entries.length - 1).toDouble(),
+          maxX: entries.length == 1 ? 1.0 : (entries.length - 1).toDouble(),
           minY: minY,
           maxY: maxY,
           lineBarsData: [
             LineChartBarData(
               spots: spots,
-              isCurved: true,
+              isCurved: entries.length > 1,
               color: AppColors.primary,
               barWidth: 3.5,
               isStrokeCapRound: true,
@@ -314,7 +314,7 @@ class _MealScheduleScreenState extends State<MealScheduleScreen> {
                 },
               ),
               belowBarData: BarAreaData(
-                show: true,
+                show: entries.length > 1,
                 gradient: LinearGradient(
                   colors: [
                     AppColors.primary.withValues(alpha: 0.25),

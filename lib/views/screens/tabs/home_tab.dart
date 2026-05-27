@@ -310,6 +310,8 @@ class _HomeTabState extends State<HomeTab> {
                             backgroundColor: AppColors.primary.withValues(alpha: 0.12),
                             foregroundColor: AppColors.primary,
                             elevation: 0,
+                            minimumSize: Size.zero,
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
                           ),

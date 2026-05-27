@@ -46,13 +46,13 @@ class WeightMiniChart extends StatelessWidget {
           titlesData: const FlTitlesData(show: false),
           borderData: FlBorderData(show: false),
           minX: 0,
-          maxX: (display.length - 1).toDouble(),
+          maxX: display.length == 1 ? 1.0 : (display.length - 1).toDouble(),
           minY: minY,
           maxY: maxY,
           lineBarsData: [
             LineChartBarData(
               spots: spots,
-              isCurved: true,
+              isCurved: display.length > 1,
               color: AppColors.primary,
               barWidth: 3,
               isStrokeCapRound: true,
@@ -68,7 +68,7 @@ class WeightMiniChart extends StatelessWidget {
                 },
               ),
               belowBarData: BarAreaData(
-                show: true,
+                show: display.length > 1,
                 color: AppColors.primary.withValues(alpha: 0.1),
               ),
             ),

@@ -467,27 +467,30 @@ class _MealsTabState extends State<MealsTab> {
                     ] else ...[
                       // List of foods to select
                       Expanded(
-                        child: ListView.builder(
-                          itemCount: foodCtrl.searchResults.length,
-                          itemBuilder: (_, i) {
-                            final food = foodCtrl.searchResults[i];
-                            return ListTile(
-                              leading: CircleAvatar(
-                                backgroundColor: AppColors.primary.withValues(alpha: 0.1),
-                                child: const Icon(Icons.restaurant_rounded, color: AppColors.primary, size: 18),
-                              ),
-                              title: Text(food.name, style: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 14)),
-                              subtitle: Text(
-                                '${food.caloriesPer100g.round()} kcal/100g — ${food.category}',
-                                style: GoogleFonts.inter(fontSize: 12, color: AppColors.textSecondary),
-                              ),
-                              onTap: () {
-                                setModalState(() {
-                                  selectedFood = food;
-                                });
-                              },
-                            );
-                          },
+                        child: Material(
+                          type: MaterialType.transparency,
+                          child: ListView.builder(
+                            itemCount: foodCtrl.searchResults.length,
+                            itemBuilder: (_, i) {
+                              final food = foodCtrl.searchResults[i];
+                              return ListTile(
+                                leading: CircleAvatar(
+                                  backgroundColor: AppColors.primary.withValues(alpha: 0.1),
+                                  child: const Icon(Icons.restaurant_rounded, color: AppColors.primary, size: 18),
+                                ),
+                                title: Text(food.name, style: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 14)),
+                                subtitle: Text(
+                                  '${food.caloriesPer100g.round()} kcal/100g — ${food.category}',
+                                  style: GoogleFonts.inter(fontSize: 12, color: AppColors.textSecondary),
+                                ),
+                                onTap: () {
+                                  setModalState(() {
+                                    selectedFood = food;
+                                  });
+                                },
+                              );
+                            },
+                          ),
                         ),
                       ),
                     ],
