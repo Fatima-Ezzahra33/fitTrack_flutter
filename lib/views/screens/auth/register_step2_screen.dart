@@ -35,6 +35,9 @@ class _RegisterStep2ScreenState extends State<RegisterStep2Screen> {
   DateTime? _selectedDob;
   String? _selectedGender;
 
+  // Used to show a validation error beneath the gender dropdown
+  bool _genderTouched = false;
+
   final List<String> _genders = [
     AppStrings.male,
     AppStrings.female,
@@ -52,7 +55,8 @@ class _RegisterStep2ScreenState extends State<RegisterStep2Screen> {
 
   Future<void> _selectDateOfBirth() async {
     final DateTime now = DateTime.now();
-    final DateTime eighteenYearsAgo = DateTime(now.year - 18, now.month, now.day);
+    final DateTime eighteenYearsAgo =
+        DateTime(now.year - 18, now.month, now.day);
     final DateTime hundredYearsAgo = DateTime(now.year - 100);
 
     final DateTime? picked = await showDatePicker(
@@ -83,15 +87,28 @@ class _RegisterStep2ScreenState extends State<RegisterStep2Screen> {
   }
 
   void _handleNextStep() {
+    // Mark gender as touched so the error shows if still null
+    setState(() {
+      _genderTouched = true;
+    });
+
     if (!_formKey.currentState!.validate()) return;
+
+    // Manual gender validation (DropdownMenu has no built-in validator)
+    if (_selectedGender == null) return;
 
     final authController = context.read<AuthController>();
     authController.saveStep2(
-      phoneNumber: _phoneController.text.isNotEmpty ? _phoneController.text : null,
+      phoneNumber:
+          _phoneController.text.isNotEmpty ? _phoneController.text : null,
       dateOfBirth: _selectedDob,
       gender: _selectedGender,
-      height: _heightController.text.isNotEmpty ? double.tryParse(_heightController.text) : null,
-      weight: _weightController.text.isNotEmpty ? double.tryParse(_weightController.text) : null,
+      height: _heightController.text.isNotEmpty
+          ? double.tryParse(_heightController.text)
+          : null,
+      weight: _weightController.text.isNotEmpty
+          ? double.tryParse(_weightController.text)
+          : null,
     );
     authController.setStep(2);
 
@@ -105,7 +122,8 @@ class _RegisterStep2ScreenState extends State<RegisterStep2Screen> {
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
 
     return Scaffold(
-      backgroundColor: isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+      backgroundColor:
+          isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(
@@ -122,7 +140,9 @@ class _RegisterStep2ScreenState extends State<RegisterStep2Screen> {
                   padding: EdgeInsets.zero,
                   alignment: Alignment.centerLeft,
                   icon: const Icon(Icons.arrow_back_ios_new_rounded),
-                  color: isDark ? AppColors.textDarkPrimary : AppColors.textPrimary,
+                  color: isDark
+                      ? AppColors.textDarkPrimary
+                      : AppColors.textPrimary,
                   onPressed: () {
                     final authController = context.read<AuthController>();
                     authController.setStep(0);
@@ -137,14 +157,18 @@ class _RegisterStep2ScreenState extends State<RegisterStep2Screen> {
                   style: GoogleFonts.poppins(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: isDark ? AppColors.textDarkPrimary : AppColors.textPrimary,
+                    color: isDark
+                        ? AppColors.textDarkPrimary
+                        : AppColors.textPrimary,
                   ),
                 ),
                 Text(
                   AppStrings.registerSubtitle,
                   style: GoogleFonts.inter(
                     fontSize: 14,
-                    color: isDark ? AppColors.textDarkSecondary : AppColors.textSecondary,
+                    color: isDark
+                        ? AppColors.textDarkSecondary
+                        : AppColors.textSecondary,
                   ),
                 ),
                 const SizedBox(height: AppSizes.xl),
@@ -187,36 +211,82 @@ class _RegisterStep2ScreenState extends State<RegisterStep2Screen> {
                 ),
                 const SizedBox(height: AppSizes.md),
 
-                // Gender Select Field
-                DropdownButtonFormField<String>(
-                  initialValue: _selectedGender,
-                  decoration: const InputDecoration(
-                    labelText: AppStrings.gender,
-                    prefixIcon: Padding(
-                      padding: EdgeInsets.only(left: AppSizes.lg, right: AppSizes.md),
-                      child: Icon(Icons.wc_rounded, size: AppSizes.iconMd),
+                // ── Gender DropdownMenu (replaces DropdownButtonFormField) ──
+                // DropdownMenu renders a floating overlay anchored to the field
+                // instead of a full-width bottom sheet, which looks much cleaner.
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    DropdownMenu<String>(
+                      width: MediaQuery.of(context).size.width -
+                          (AppSizes.xl * 2),
+                      initialSelection: _selectedGender,
+                      label: Text(
+                        AppStrings.gender,
+                        style: TextStyle(
+                          color: isDark
+                              ? AppColors.textDarkSecondary
+                              : AppColors.textSecondary,
+                        ),
+                      ),
+                      leadingIcon: Padding(
+                        padding: const EdgeInsets.only(
+                          left: AppSizes.lg,
+                          right: AppSizes.md,
+                        ),
+                        child: Icon(
+                          Icons.wc_rounded,
+                          size: AppSizes.iconMd,
+                          color: isDark
+                              ? AppColors.textDarkSecondary
+                              : AppColors.textSecondary,
+                        ),
+                      ),
+                      menuStyle: MenuStyle(
+                        backgroundColor: WidgetStateProperty.all(
+                          isDark
+                              ? AppColors.surfaceDark
+                              : AppColors.surfaceLight,
+                        ),
+                        elevation: WidgetStateProperty.all(4),
+                        shape: WidgetStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                      ),
+                      textStyle: Theme.of(context).textTheme.bodyLarge,
+                      inputDecorationTheme:
+                          Theme.of(context).inputDecorationTheme,
+                      dropdownMenuEntries: _genders.map((String gender) {
+                        return DropdownMenuEntry<String>(
+                          value: gender,
+                          label: gender,
+                        );
+                      }).toList(),
+                      onSelected: (value) {
+                        setState(() {
+                          _selectedGender = value;
+                          _genderTouched = true;
+                        });
+                      },
                     ),
-                    prefixIconConstraints: BoxConstraints(minWidth: 0, minHeight: 0),
-                  ),
-                  dropdownColor: isDark ? AppColors.surfaceDark : AppColors.surfaceLight,
-                  style: Theme.of(context).textTheme.bodyLarge,
-                  items: _genders.map((String gender) {
-                    return DropdownMenuItem<String>(
-                      value: gender,
-                      child: Text(gender),
-                    );
-                  }).toList(),
-                  onChanged: (value) {
-                    setState(() {
-                      _selectedGender = value;
-                    });
-                  },
-                  validator: (value) {
-                    if (value == null) {
-                      return AppStrings.requiredField;
-                    }
-                    return null;
-                  },
+                    // Show validation error manually (DropdownMenu has no validator)
+                    if (_genderTouched && _selectedGender == null)
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          top: 6,
+                          left: AppSizes.lg,
+                        ),
+                        child: Text(
+                          AppStrings.requiredField,
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Theme.of(context).colorScheme.error,
+                          ),
+                        ),
+                      ),
+                  ],
                 ),
                 const SizedBox(height: AppSizes.md),
 
@@ -229,7 +299,8 @@ class _RegisterStep2ScreenState extends State<RegisterStep2Screen> {
                         hint: 'cm',
                         icon: Icons.height_rounded,
                         controller: _heightController,
-                        keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                        keyboardType: const TextInputType.numberWithOptions(
+                            decimal: true),
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
                             return AppStrings.requiredField;
@@ -248,7 +319,8 @@ class _RegisterStep2ScreenState extends State<RegisterStep2Screen> {
                         hint: 'kg',
                         icon: Icons.monitor_weight_outlined,
                         controller: _weightController,
-                        keyboardType: const TextInputType.numberWithOptions(decimal: true),
+                        keyboardType: const TextInputType.numberWithOptions(
+                            decimal: true),
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
                             return AppStrings.requiredField;

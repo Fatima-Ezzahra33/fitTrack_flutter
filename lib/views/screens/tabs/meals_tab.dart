@@ -49,7 +49,7 @@ class _MealsTabState extends State<MealsTab> {
       backgroundColor: isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
       appBar: AppBar(
         title: Text(
-          'Repas',
+          'Meals',
           style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 20),
         ),
         backgroundColor: Colors.transparent,
@@ -58,7 +58,7 @@ class _MealsTabState extends State<MealsTab> {
         actions: [
           IconButton(
             icon: const Icon(Icons.calendar_month_rounded, color: AppColors.primary),
-            tooltip: 'Historique & Planning',
+            tooltip: 'History & Planning',
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(builder: (_) => const MealScheduleScreen()),
@@ -88,7 +88,7 @@ class _MealsTabState extends State<MealsTab> {
 
                   // Today's meals grouped
                   Text(
-                    'Repas du Jour',
+                    'Today\'s Meals',
                     style: GoogleFonts.poppins(
                       fontSize: 18, fontWeight: FontWeight.bold,
                       color: isDark ? AppColors.textDarkPrimary : AppColors.textPrimary,
@@ -103,14 +103,14 @@ class _MealsTabState extends State<MealsTab> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Recettes Prêtes',
+                        'Ready Meals',
                         style: GoogleFonts.poppins(
                           fontSize: 18, fontWeight: FontWeight.bold,
                           color: isDark ? AppColors.textDarkPrimary : AppColors.textPrimary,
                         ),
                       ),
                       Text(
-                        '${mealCtrl.readyMeals.length} recettes',
+                        '${mealCtrl.readyMeals.length} recipes',
                         style: GoogleFonts.inter(fontSize: 12, color: AppColors.primary, fontWeight: FontWeight.w600),
                       ),
                     ],
@@ -126,10 +126,10 @@ class _MealsTabState extends State<MealsTab> {
 
   Widget _buildMealGroup(String type, List<MealLog> logs, bool isDark) {
     final Map<String, String> labelMap = {
-      'Breakfast': 'Petit-Déjeuner',
-      'Lunch': 'Déjeuner',
-      'Dinner': 'Dîner',
-      'Snack': 'Collation',
+      'Breakfast': 'Breakfast',
+      'Lunch': 'Lunch',
+      'Dinner': 'Dinner',
+      'Snack': 'Snack',
     };
     final Map<String, IconData> iconMap = {
       'Breakfast': Icons.free_breakfast_rounded,
@@ -167,7 +167,7 @@ class _MealsTabState extends State<MealsTab> {
             Padding(
               padding: const EdgeInsets.only(left: 28),
               child: Text(
-                'Aucun repas ajouté',
+                'No meals added',
                 style: GoogleFonts.inter(
                   fontSize: 12, fontStyle: FontStyle.italic,
                   color: isDark ? AppColors.textDarkSecondary : AppColors.textSecondary,
@@ -235,7 +235,7 @@ class _MealsTabState extends State<MealsTab> {
 
   Widget _buildReadyMealsList(List<ReadyMeal> meals, bool isDark) {
     if (meals.isEmpty) {
-      return Text('Aucune recette disponible.', style: GoogleFonts.inter(color: AppColors.textSecondary));
+      return Text('No recipes available.', style: GoogleFonts.inter(color: AppColors.textSecondary));
     }
 
     return SizedBox(
@@ -289,7 +289,7 @@ class _MealsTabState extends State<MealsTab> {
                     ),
                   ),
                   Text(
-                    '${meal.totalCalories.round()} kcal • ${meal.ingredients.length} ingrédients',
+                    '${meal.totalCalories.round()} kcal • ${meal.ingredients.length} ingredients',
                     style: GoogleFonts.inter(
                       fontSize: 10,
                       color: isDark ? Colors.white70 : AppColors.textSecondary,
@@ -310,7 +310,7 @@ class _MealsTabState extends State<MealsTab> {
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                         padding: EdgeInsets.zero,
                       ),
-                      child: Text('Voir', style: GoogleFonts.poppins(color: Colors.white, fontSize: 11, fontWeight: FontWeight.bold)),
+                      child: Text('View', style: GoogleFonts.poppins(color: Colors.white, fontSize: 11, fontWeight: FontWeight.bold)),
                     ),
                   ),
                 ],
@@ -358,7 +358,7 @@ class _MealsTabState extends State<MealsTab> {
                     ),
                     const SizedBox(height: AppSizes.md),
                     Text(
-                      'Ajouter un Aliment',
+                      'Add Food',
                       style: GoogleFonts.poppins(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: AppSizes.md),
@@ -371,7 +371,7 @@ class _MealsTabState extends State<MealsTab> {
                         setModalState(() {});
                       },
                       decoration: InputDecoration(
-                        hintText: 'Rechercher un aliment...',
+                        hintText: 'Search for a food...',
                         prefixIcon: const Icon(Icons.search_rounded, color: AppColors.primary),
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
                       ),
@@ -405,7 +405,7 @@ class _MealsTabState extends State<MealsTab> {
                         keyboardType: TextInputType.number,
                         onChanged: (_) => setModalState(() {}),
                         decoration: InputDecoration(
-                          labelText: 'Quantité (grammes)',
+                          labelText: 'Quantity (grams)',
                           prefixIcon: const Icon(Icons.scale_rounded, color: AppColors.primary),
                           border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
                         ),
@@ -415,7 +415,7 @@ class _MealsTabState extends State<MealsTab> {
                       DropdownButtonFormField<String>(
                         value: selectedMealType,
                         decoration: InputDecoration(
-                          labelText: 'Type de repas',
+                          labelText: 'Meal type',
                           border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
                         ),
                         items: ['Breakfast', 'Lunch', 'Dinner', 'Snack']
@@ -431,7 +431,7 @@ class _MealsTabState extends State<MealsTab> {
                         final g = double.tryParse(gramsCtrl.text) ?? 100;
                         final cal = (selectedFood!.caloriesPer100g * g) / 100;
                         return Text(
-                          '≈ ${cal.round()} kcal pour ${g.round()}g',
+                          '≈ ${cal.round()} kcal for ${g.round()}g',
                           style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 15, color: AppColors.primary),
                         );
                       }),
@@ -450,7 +450,7 @@ class _MealsTabState extends State<MealsTab> {
                               Navigator.pop(ctx);
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text('${selectedFood!.name} ajouté !'),
+                                  content: Text('${selectedFood!.name} added!'),
                                   backgroundColor: AppColors.success,
                                 ),
                               );
@@ -461,7 +461,7 @@ class _MealsTabState extends State<MealsTab> {
                             minimumSize: const Size(double.infinity, 48),
                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
                           ),
-                          child: Text('Ajouter au Journal', style: GoogleFonts.poppins(fontWeight: FontWeight.bold, color: Colors.white)),
+                          child: Text('Add to Log', style: GoogleFonts.poppins(fontWeight: FontWeight.bold, color: Colors.white)),
                         ),
                       ),
                     ] else ...[

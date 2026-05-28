@@ -105,7 +105,7 @@ class _ActivityTabState extends State<ActivityTab> {
                             keyboardType: TextInputType.number,
                             onChanged: (_) => setModalState(() {}),
                             decoration: InputDecoration(
-                              labelText: 'Durée (minutes)',
+                              labelText: 'Duration (minutes)',
                               prefixIcon: const Icon(Icons.timer_outlined, color: AppColors.primary),
                               border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
                             ),
@@ -130,7 +130,7 @@ class _ActivityTabState extends State<ActivityTab> {
                           const Icon(Icons.local_fire_department_rounded, color: Colors.orange, size: 22),
                           const SizedBox(width: 8),
                           Text(
-                            'Calories brûlées : ${estimatedCal.round()} kcal',
+                            'Calories burned: ${estimatedCal.round()} kcal',
                             style: GoogleFonts.poppins(
                               fontSize: 15, fontWeight: FontWeight.bold, color: AppColors.primary,
                             ),
@@ -157,7 +157,7 @@ class _ActivityTabState extends State<ActivityTab> {
                             Navigator.pop(ctx);
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text('${exercise.name} enregistré — ${(mins * exercise.caloriesPerMinute).round()} kcal brûlées !'),
+                                content: Text('${exercise.name} recorded — ${(mins * exercise.caloriesPerMinute).round()} kcal burned!'),
                                 backgroundColor: AppColors.success,
                               ),
                             );
@@ -165,7 +165,7 @@ class _ActivityTabState extends State<ActivityTab> {
                         },
                         icon: const Icon(Icons.save_rounded, color: Colors.white),
                         label: Text(
-                          'Enregistrer la Séance',
+                          'Save Workout',
                           style: GoogleFonts.poppins(fontWeight: FontWeight.bold, color: Colors.white),
                         ),
                         style: ElevatedButton.styleFrom(
@@ -195,7 +195,7 @@ class _ActivityTabState extends State<ActivityTab> {
       backgroundColor: isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
       appBar: AppBar(
         title: Text(
-          'Activités',
+          'Activities',
           style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 20),
         ),
         backgroundColor: Colors.transparent,
@@ -210,7 +210,7 @@ class _ActivityTabState extends State<ActivityTab> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: AppSizes.xl),
                   child: CustomTextField(
-                    hint: 'Rechercher un exercice...',
+                    hint: 'Search for an exercise...',
                     icon: Icons.search_rounded,
                     controller: _searchController,
                     onChanged: (val) => controller.searchExercises(val),
@@ -230,8 +230,8 @@ class _ActivityTabState extends State<ActivityTab> {
                           indicatorColor: AppColors.primary,
                           labelStyle: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 14),
                           tabs: const [
-                            Tab(text: 'Exercices'),
-                            Tab(text: 'Historique'),
+                            Tab(text: 'Exercises'),
+                            Tab(text: 'History'),
                           ],
                         ),
                         Expanded(
@@ -256,7 +256,7 @@ class _ActivityTabState extends State<ActivityTab> {
 
     if (exercises.isEmpty) {
       return Center(
-        child: Text('Aucun exercice trouvé.',
+        child: Text('No exercises found.',
           style: GoogleFonts.inter(color: isDark ? AppColors.textDarkSecondary : AppColors.textSecondary)),
       );
     }
@@ -356,7 +356,7 @@ class _ActivityTabState extends State<ActivityTab> {
             Icon(Icons.history_rounded, size: 48, color: AppColors.textSecondary.withValues(alpha: 0.4)),
             const SizedBox(height: AppSizes.md),
             Text(
-              'Aucune activité enregistrée.',
+              'No activities recorded.',
               style: GoogleFonts.inter(color: isDark ? AppColors.textDarkSecondary : AppColors.textSecondary),
             ),
           ],
@@ -417,7 +417,7 @@ class _ActivityTabState extends State<ActivityTab> {
                         ),
                       ),
                       Text(
-                        '${log.durationMinutes} min — ${log.caloriesBurned.round()} kcal — ${isToday ? "Aujourd'hui" : dateStr} $timeStr',
+                        '${log.durationMinutes} min — ${log.caloriesBurned.round()} kcal — ${isToday ? "Today" : dateStr} $timeStr',
                         style: GoogleFonts.inter(
                           fontSize: 11,
                           color: isDark ? AppColors.textDarkSecondary : AppColors.textSecondary,

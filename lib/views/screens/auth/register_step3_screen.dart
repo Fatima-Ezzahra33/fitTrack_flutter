@@ -35,24 +35,28 @@ class _RegisterStep3ScreenState extends State<RegisterStep3Screen> {
       'title': AppStrings.loseWeight,
       'description': 'Burn fat and get leaner',
       'icon': Icons.trending_down_rounded,
+      'imageUrl': 'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=400&q=80',
     },
     {
       'key': 'gain_muscle',
       'title': AppStrings.gainMuscle,
       'description': 'Build strength and muscle mass',
       'icon': Icons.fitness_center_rounded,
+      'imageUrl': 'https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=400&q=80',
     },
     {
       'key': 'keep_fit',
       'title': AppStrings.keepFit,
       'description': 'Maintain healthy weight and energy',
       'icon': Icons.favorite_rounded,
+      'imageUrl': 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=400&q=80',
     },
     {
       'key': 'improve_sleep',
       'title': AppStrings.improveSleep,
       'description': 'Enhance recovery and sleep quality',
       'icon': Icons.nightlight_round,
+      'imageUrl': 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=400&q=80',
     },
   ];
 
@@ -226,24 +230,26 @@ class _RegisterStep3ScreenState extends State<RegisterStep3Screen> {
                       child: AnimatedContainer(
                         duration: const Duration(milliseconds: 300),
                         decoration: BoxDecoration(
-                          color: isSelected
-                              ? AppColors.primary.withValues(alpha: isDark ? 0.15 : 0.08)
-                              : isDark
-                                  ? AppColors.surfaceDark
-                                  : AppColors.surfaceLight,
+                          color: isDark ? AppColors.surfaceDark : AppColors.surfaceLight,
                           borderRadius: BorderRadius.circular(16),
+                          image: DecorationImage(
+                            image: NetworkImage(goal['imageUrl']),
+                            fit: BoxFit.cover,
+                            colorFilter: ColorFilter.mode(
+                              isSelected 
+                                ? AppColors.primary.withValues(alpha: 0.5) 
+                                : Colors.black.withValues(alpha: 0.6),
+                              BlendMode.darken,
+                            ),
+                          ),
                           border: Border.all(
-                            color: isSelected
-                                ? AppColors.primary
-                                : isDark
-                                    ? AppColors.borderDark
-                                    : AppColors.borderLight,
-                            width: isSelected ? 2 : 1.5,
+                            color: isSelected ? AppColors.primary : Colors.transparent,
+                            width: 2,
                           ),
                           boxShadow: isSelected
                               ? [
                                   BoxShadow(
-                                    color: AppColors.primary.withValues(alpha: 0.15),
+                                    color: AppColors.primary.withValues(alpha: 0.3),
                                     blurRadius: 10,
                                     offset: const Offset(0, 4),
                                   ),
@@ -262,13 +268,11 @@ class _RegisterStep3ScreenState extends State<RegisterStep3Screen> {
                                 shape: BoxShape.circle,
                                 color: isSelected
                                     ? AppColors.primary
-                                    : (isDark ? AppColors.inputFillDark : AppColors.inputFillLight),
+                                    : Colors.white.withValues(alpha: 0.2),
                               ),
                               child: Icon(
                                 goal['icon'],
-                                color: isSelected
-                                    ? Colors.white
-                                    : (isDark ? AppColors.textDarkSecondary : AppColors.textSecondary),
+                                color: Colors.white,
                                 size: 24,
                               ),
                             ),
@@ -278,7 +282,7 @@ class _RegisterStep3ScreenState extends State<RegisterStep3Screen> {
                               style: GoogleFonts.poppins(
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
-                                color: isDark ? AppColors.textDarkPrimary : AppColors.textPrimary,
+                                color: Colors.white,
                               ),
                             ),
                             const SizedBox(height: 4),
@@ -287,7 +291,7 @@ class _RegisterStep3ScreenState extends State<RegisterStep3Screen> {
                               style: GoogleFonts.inter(
                                 fontSize: 11,
                                 height: 1.3,
-                                color: isDark ? AppColors.textDarkSecondary : AppColors.textSecondary,
+                                color: Colors.white70,
                               ),
                             ),
                           ],

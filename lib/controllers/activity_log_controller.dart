@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import '../models/exercise_model.dart';
 import '../models/activity_log_model.dart';
 import '../services/database_service.dart';
+import '../services/preferences_service.dart';
 
 class ActivityLogController extends ChangeNotifier {
   final DatabaseService _dbService;
+  final PreferencesService _prefsService;
 
   List<Exercise> _exercises = [];
   List<Exercise> get exercises => _exercises;
@@ -21,7 +23,11 @@ class ActivityLogController extends ChangeNotifier {
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
-  ActivityLogController({required DatabaseService dbService}) : _dbService = dbService {
+  ActivityLogController({
+    required DatabaseService dbService,
+    required PreferencesService prefsService,
+  })  : _dbService = dbService,
+        _prefsService = prefsService {
     init();
   }
 
@@ -57,10 +63,12 @@ class ActivityLogController extends ChangeNotifier {
   }
 
   Future<void> loadLogs() async {
+    final int? userId = _prefsService.getCurrentUserId();
+    if (userId == null) return;
     try {
-      _activityLogs = await _dbService.getActivityLogs();
+      _activityLogs = await _dbService.getActivityLogs(userId);
       final todayStr = DateTime.now().toIso8601String().split('T').first;
-      _todayCaloriesBurned = await _dbService.getDailyCaloriesBurned(todayStr);
+      _todayCaloriesBurned = await _dbService.getDailyCaloriesBurned(userId, todayStr);
     } catch (e) {
       debugPrint('Error loading activity logs: $e');
     }
@@ -71,6 +79,8 @@ class ActivityLogController extends ChangeNotifier {
     required Exercise exercise,
     required int durationMinutes,
   }) async {
+    final int? userId = _prefsService.getCurrentUserId();
+    if (userId == null) return;
     try {
       final double burned = durationMinutes * exercise.caloriesPerMinute;
       final now = DateTime.now();
@@ -79,6 +89,7 @@ class ActivityLogController extends ChangeNotifier {
           '${now.toIso8601String().split('T').first} ${now.hour.toString().padLeft(2, '0')}:${now.minute.toString().padLeft(2, '0')}';
 
       final log = ActivityLog(
+        userId: userId,
         exerciseId: exercise.id!,
         name: exercise.name,
         category: exercise.category,
@@ -95,8 +106,10 @@ class ActivityLogController extends ChangeNotifier {
   }
 
   Future<void> removeLog(int logId) async {
+    final int? userId = _prefsService.getCurrentUserId();
+    if (userId == null) return;
     try {
-      await _dbService.deleteActivityLog(logId);
+      await _dbService.deleteActivityLog(logId, userId);
       await loadLogs();
     } catch (e) {
       debugPrint('Error deleting workout log: $e');

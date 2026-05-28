@@ -45,26 +45,45 @@ class _RegisterStep1ScreenState extends State<RegisterStep1Screen> {
     super.dispose();
   }
 
-  void _handleNextStep() {
+  Future<void> _handleNextStep() async {
     if (!_formKey.currentState!.validate()) return;
 
     final authController = context.read<AuthController>();
-    authController.saveStep1(
+    final success = await authController.saveStep1(
       firstName: _firstNameController.text,
       lastName: _lastNameController.text,
       email: _emailController.text,
       password: _passwordController.text,
     );
-    authController.setStep(1);
 
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => const RegisterStep2Screen()),
-    );
+    if (!mounted) return;
+
+    if (success) {
+      authController.setStep(1);
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (_) => const RegisterStep2Screen()),
+      );
+    } else {
+      final errorMessage = authController.error ?? 'Email validation failed';
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            errorMessage,
+            style: GoogleFonts.inter(color: Colors.white),
+          ),
+          backgroundColor: AppColors.error,
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          margin: const EdgeInsets.all(AppSizes.md),
+        ),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    final bool isLoading = context.watch<AuthController>().isLoading;
 
     return Scaffold(
       backgroundColor: isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
@@ -217,6 +236,7 @@ class _RegisterStep1ScreenState extends State<RegisterStep1Screen> {
                 // Next Step Button
                 GradientButton(
                   text: AppStrings.next,
+                  isLoading: isLoading,
                   onPressed: _handleNextStep,
                 ),
                 const SizedBox(height: AppSizes.xl),

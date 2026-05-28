@@ -56,10 +56,10 @@ class _ReadyMealDetailScreenState extends State<ReadyMealDetailScreen> {
     final Color accent = catColor[cat] ?? AppColors.primary;
 
     final Map<String, String> catLabel = {
-      'breakfast': 'Petit-Déjeuner',
-      'lunch': 'Déjeuner',
-      'dinner': 'Dîner',
-      'snack': 'Collation',
+      'breakfast': 'Breakfast',
+      'lunch': 'Lunch',
+      'dinner': 'Dinner',
+      'snack': 'Snack',
     };
 
     return Scaffold(
@@ -175,7 +175,7 @@ class _ReadyMealDetailScreenState extends State<ReadyMealDetailScreen> {
 
                   // Ingredients subtitle
                   Text(
-                    'Ingrédients',
+                    'Ingredients',
                     style: GoogleFonts.poppins(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -227,7 +227,7 @@ class _ReadyMealDetailScreenState extends State<ReadyMealDetailScreen> {
 
                   // Meal Type selection logic
                   Text(
-                    'Enregistrer ce repas dans :',
+                    'Log this meal under:',
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                       fontWeight: FontWeight.bold,
@@ -261,10 +261,10 @@ class _ReadyMealDetailScreenState extends State<ReadyMealDetailScreen> {
                     ),
                     dropdownColor: isDark ? AppColors.surfaceDark : Colors.white,
                     items: const [
-                      DropdownMenuItem(value: 'Breakfast', child: Text('Petit-Déjeuner')),
-                      DropdownMenuItem(value: 'Lunch', child: Text('Déjeuner')),
-                      DropdownMenuItem(value: 'Dinner', child: Text('Dîner')),
-                      DropdownMenuItem(value: 'Snack', child: Text('Collation')),
+                      DropdownMenuItem(value: 'Breakfast', child: Text('Breakfast')),
+                      DropdownMenuItem(value: 'Lunch', child: Text('Lunch')),
+                      DropdownMenuItem(value: 'Dinner', child: Text('Dinner')),
+                      DropdownMenuItem(value: 'Snack', child: Text('Snack')),
                     ],
                     onChanged: (val) {
                       if (val != null) {
@@ -292,7 +292,7 @@ class _ReadyMealDetailScreenState extends State<ReadyMealDetailScreen> {
                         if (mounted) {
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
-                              content: Text('${widget.meal.name} enregistré pour le ${_selectedMealType == "Breakfast" ? "Petit-Déjeuner" : _selectedMealType == "Lunch" ? "Déjeuner" : _selectedMealType == "Dinner" ? "Dîner" : "Collation"} !'),
+                              content: Text('${widget.meal.name} logged for $_selectedMealType!'),
                               backgroundColor: AppColors.success,
                             ),
                           );
@@ -301,7 +301,7 @@ class _ReadyMealDetailScreenState extends State<ReadyMealDetailScreen> {
                       },
                       icon: const Icon(Icons.add_task_rounded, color: Colors.white),
                       label: Text(
-                        'Logger ce Repas',
+                        'Log this Meal',
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,

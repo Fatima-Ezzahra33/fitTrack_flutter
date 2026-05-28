@@ -55,7 +55,7 @@ class _MealScheduleScreenState extends State<MealScheduleScreen> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(
-          'Planning des Repas',
+          'Meal Schedule',
           style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 20),
         ),
         backgroundColor: Colors.transparent,
@@ -73,7 +73,7 @@ class _MealScheduleScreenState extends State<MealScheduleScreen> {
 
             // Weekly Chart Section
             Text(
-              'Calories de la Semaine',
+              'Weekly Calories',
               style: GoogleFonts.poppins(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -86,7 +86,7 @@ class _MealScheduleScreenState extends State<MealScheduleScreen> {
 
             // Grouped daily logs
             Text(
-              'Repas du Jour Sélectionné',
+              'Meals for Selected Day',
               style: GoogleFonts.poppins(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -116,13 +116,13 @@ class _MealScheduleScreenState extends State<MealScheduleScreen> {
           final isSelected = dayStr == mealCtrl.selectedDate;
 
           final Map<String, String> frenchDays = {
-            'Mon': 'Lun',
-            'Tue': 'Mar',
-            'Wed': 'Mer',
-            'Thu': 'Jeu',
-            'Fri': 'Ven',
-            'Sat': 'Sam',
-            'Sun': 'Dim',
+            'Mon': 'Mon',
+            'Tue': 'Tue',
+            'Wed': 'Wed',
+            'Thu': 'Thu',
+            'Fri': 'Fri',
+            'Sat': 'Sat',
+            'Sun': 'Sun',
           };
           final String enDay = DateFormat('E').format(day);
           final String frDay = frenchDays[enDay] ?? enDay;
@@ -194,7 +194,7 @@ class _MealScheduleScreenState extends State<MealScheduleScreen> {
         ),
         child: Center(
           child: Text(
-            'Pas de données cette semaine',
+            'No data this week',
             style: GoogleFonts.inter(color: AppColors.textSecondary),
           ),
         ),
@@ -267,13 +267,13 @@ class _MealScheduleScreenState extends State<MealScheduleScreen> {
                     final date = DateTime.tryParse(dateStr);
                     if (date != null) {
                       final Map<String, String> frenchDaysShort = {
-                        'Mon': 'Lun',
-                        'Tue': 'Mar',
-                        'Wed': 'Mer',
-                        'Thu': 'Jeu',
-                        'Fri': 'Ven',
-                        'Sat': 'Sam',
-                        'Sun': 'Dim',
+                        'Mon': 'Mon',
+                        'Tue': 'Tue',
+                        'Wed': 'Wed',
+                        'Thu': 'Thu',
+                        'Fri': 'Fri',
+                        'Sat': 'Sat',
+                        'Sun': 'Sun',
                       };
                       final enDay = DateFormat('E').format(date);
                       return Padding(
@@ -333,10 +333,10 @@ class _MealScheduleScreenState extends State<MealScheduleScreen> {
 
   Widget _buildMealGroup(String type, List<MealLog> logs, bool isDark, MealLogController mealCtrl) {
     final Map<String, String> labelMap = {
-      'Breakfast': 'Petit-Déjeuner',
-      'Lunch': 'Déjeuner',
-      'Dinner': 'Dîner',
-      'Snack': 'Collation',
+      'Breakfast': 'Breakfast',
+      'Lunch': 'Lunch',
+      'Dinner': 'Dinner',
+      'Snack': 'Snack',
     };
     final Map<String, IconData> iconMap = {
       'Breakfast': Icons.free_breakfast_rounded,
@@ -374,7 +374,7 @@ class _MealScheduleScreenState extends State<MealScheduleScreen> {
             Padding(
               padding: const EdgeInsets.only(left: 26, top: 2),
               child: Text(
-                'Aucun repas loggé',
+                'No meals logged',
                 style: GoogleFonts.inter(
                   fontSize: 12, fontStyle: FontStyle.italic,
                   color: isDark ? AppColors.textDarkSecondary : AppColors.textSecondary,
@@ -401,7 +401,7 @@ class _MealScheduleScreenState extends State<MealScheduleScreen> {
                   if (mounted) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text('${log.name} supprimé !'),
+                        content: Text('${log.name} deleted!'),
                         backgroundColor: Colors.redAccent,
                       ),
                     );

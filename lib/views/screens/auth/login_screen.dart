@@ -96,42 +96,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 Center(
                   child: Column(
                     children: [
-                      Container(
-                        width: 64,
-                        height: 64,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          gradient: AppColors.primaryGradient,
-                        ),
-                        child: const Icon(
-                          Icons.fitness_center_rounded,
-                          color: AppColors.textOnPrimary,
-                          size: 32,
-                        ),
-                      ),
-                      const SizedBox(height: AppSizes.md),
-                      RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'Fit',
-                              style: GoogleFonts.poppins(
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                                color: isDark ? AppColors.textDarkPrimary : AppColors.textPrimary,
-                              ),
-                            ),
-                            TextSpan(
-                              text: 'Track',
-                              style: GoogleFonts.poppins(
-                                fontSize: 28,
-                                fontWeight: FontWeight.bold,
-                                color: AppColors.primary,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
+                      SizedBox(
+                      width: 128,
+                      height: 128,
+                      child: Image.asset('assets/images/fit_track_logo.png', fit: BoxFit.contain),
+                    ),
                     ],
                   ),
                 ),

@@ -113,50 +113,12 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     // Decorative abstract logo shape
-                    Container(
-                      width: 80,
-                      height: 80,
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        gradient: AppColors.primaryGradient,
-                        boxShadow: [
-                          BoxShadow(
-                            color: Color(0x409B7BFF),
-                            blurRadius: 15,
-                            offset: Offset(0, 5),
-                          ),
-                        ],
-                      ),
-                      child: const Icon(
-                        Icons.fitness_center_rounded,
-                        color: AppColors.textOnPrimary,
-                        size: 40,
-                      ),
-                    ),
+                    SizedBox(
+        width: 150,
+        height: 150,
+        child: Image.asset('assets/images/fit_track_logo.png', fit: BoxFit.contain),
+      ),
                     const SizedBox(height: AppSizes.lg),
-                    RichText(
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'Fit',
-                            style: GoogleFonts.poppins(
-                              fontSize: 36,
-                              fontWeight: FontWeight.bold,
-                              color: isDark ? AppColors.textDarkPrimary : AppColors.textPrimary,
-                            ),
-                          ),
-                          TextSpan(
-                            text: 'Track',
-                            style: GoogleFonts.poppins(
-                              fontSize: 36,
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.primary,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    const SizedBox(height: AppSizes.xs),
                     Text(
                       AppStrings.appTagline,
                       style: GoogleFonts.inter(

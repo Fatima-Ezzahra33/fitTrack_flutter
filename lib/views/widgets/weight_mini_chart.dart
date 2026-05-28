@@ -18,7 +18,7 @@ class WeightMiniChart extends StatelessWidget {
         height: 80,
         child: Center(
           child: Text(
-            'Aucune donnée de poids',
+            'No weight data',
             style: GoogleFonts.inter(fontSize: 12, color: AppColors.textSecondary),
           ),
         ),

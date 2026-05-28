@@ -84,7 +84,7 @@ class _MainShellState extends State<MainShell> {
                 BottomNavigationBarItem(
                   icon: Icon(Icons.restaurant_menu_rounded),
                   activeIcon: Icon(Icons.restaurant_menu_rounded),
-                  label: 'Repas',
+                  label: 'Meals',
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.camera_alt_rounded),

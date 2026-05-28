@@ -3,9 +3,11 @@ import '../models/meal_log_model.dart';
 import '../models/ready_meal_model.dart';
 import '../models/food_model.dart';
 import '../services/database_service.dart';
+import '../services/preferences_service.dart';
 
 class MealLogController extends ChangeNotifier {
   final DatabaseService _dbService;
+  final PreferencesService _prefsService;
 
   List<MealLog> _logs = [];
   List<MealLog> get logs => _logs;
@@ -37,7 +39,11 @@ class MealLogController extends ChangeNotifier {
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
-  MealLogController({required DatabaseService dbService}) : _dbService = dbService {
+  MealLogController({
+    required DatabaseService dbService,
+    required PreferencesService prefsService,
+  })  : _dbService = dbService,
+        _prefsService = prefsService {
     init();
   }
 
@@ -60,10 +66,12 @@ class MealLogController extends ChangeNotifier {
 
   Future<void> loadLogsForDate(String date) async {
     _selectedDate = date;
+    final int? userId = _prefsService.getCurrentUserId();
+    if (userId == null) return;
     try {
-      _logs = await _dbService.getMealLogsForDate(date);
+      _logs = await _dbService.getMealLogsForDate(userId, date);
       _calculateTodayNutrientTotals();
-      _weeklyCaloriesData = await _dbService.getWeeklyCaloriesData(date);
+      _weeklyCaloriesData = await _dbService.getWeeklyCaloriesData(userId, date);
     } catch (e) {
       debugPrint('Error loading meal logs: $e');
     }
@@ -92,6 +100,8 @@ class MealLogController extends ChangeNotifier {
     required double grams,
     required String mealType,
   }) async {
+    final int? userId = _prefsService.getCurrentUserId();
+    if (userId == null) return;
     try {
       final double cal = (food.caloriesPer100g * grams) / 100;
       final double prot = (food.proteinsPer100g * grams) / 100;
@@ -99,6 +109,7 @@ class MealLogController extends ChangeNotifier {
       final double fat = (food.fatsPer100g * grams) / 100;
 
       final log = MealLog(
+        userId: userId,
         foodId: food.id,
         name: food.name,
         grams: grams,
@@ -121,9 +132,12 @@ class MealLogController extends ChangeNotifier {
     required ReadyMeal meal,
     required String mealType,
   }) async {
+    final int? userId = _prefsService.getCurrentUserId();
+    if (userId == null) return;
     try {
       // Create a meal log entry representing the recipe
       final log = MealLog(
+        userId: userId,
         readyMealId: meal.id,
         name: meal.name,
         grams: 300, // default portion for ready recipe meals
@@ -143,8 +157,10 @@ class MealLogController extends ChangeNotifier {
   }
 
   Future<void> removeLog(int logId) async {
+    final int? userId = _prefsService.getCurrentUserId();
+    if (userId == null) return;
     try {
-      await _dbService.deleteMealLog(logId);
+      await _dbService.deleteMealLog(logId, userId);
       await loadLogsForDate(_selectedDate);
     } catch (e) {
       debugPrint('Error removing meal log: $e');

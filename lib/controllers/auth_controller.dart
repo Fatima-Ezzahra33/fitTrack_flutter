@@ -122,18 +122,38 @@ class AuthController extends ChangeNotifier {
   }
 
   /// Step 1: Save identity data.
-  /// Returns true if validation passes.
-  bool saveStep1({
+  /// Returns true if validation passes and email does not exist.
+  Future<bool> saveStep1({
     required String firstName,
     required String lastName,
     required String email,
     required String password,
-  }) {
-    _firstName = firstName.trim();
-    _lastName = lastName.trim();
-    _email = email.trim().toLowerCase();
-    _password = password;
-    return true;
+  }) async {
+    _setLoading(true);
+    _clearError();
+
+    final String trimmedEmail = email.trim().toLowerCase();
+
+    try {
+      final bool exists = await _dbService.emailExists(trimmedEmail);
+      if (exists) {
+        _error = 'An account with this email already exists';
+        _setLoading(false);
+        return false;
+      }
+
+      _firstName = firstName.trim();
+      _lastName = lastName.trim();
+      _email = trimmedEmail;
+      _password = password;
+      
+      _setLoading(false);
+      return true;
+    } catch (e) {
+      _error = 'Validation failed: $e';
+      _setLoading(false);
+      return false;
+    }
   }
 
   /// Step 2: Save profile data.

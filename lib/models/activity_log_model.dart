@@ -3,6 +3,7 @@
 /// Represents an workout/sport log entry recorded by the user.
 class ActivityLog {
   final int? id;
+  final int userId;
   final int exerciseId;
   final String name;
   final String category;
@@ -12,6 +13,7 @@ class ActivityLog {
 
   const ActivityLog({
     this.id,
+    required this.userId,
     required this.exerciseId,
     required this.name,
     required this.category,
@@ -23,6 +25,7 @@ class ActivityLog {
   factory ActivityLog.fromJson(Map<String, dynamic> json) {
     return ActivityLog(
       id: json['id'] as int?,
+      userId: json['user_id'] as int,
       exerciseId: json['exercise_id'] as int,
       name: json['name'] as String,
       category: json['category'] as String,
@@ -35,6 +38,7 @@ class ActivityLog {
   Map<String, dynamic> toJson() {
     return {
       if (id != null) 'id': id,
+      'user_id': userId,
       'exercise_id': exerciseId,
       'name': name,
       'category': category,

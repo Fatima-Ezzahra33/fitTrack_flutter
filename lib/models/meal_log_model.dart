@@ -3,6 +3,7 @@
 /// Represents a logged meal entry consumed by the user on a specific date.
 class MealLog {
   final int? id;
+  final int userId;
   final int? foodId;
   final int? readyMealId;
   final String name;
@@ -16,6 +17,7 @@ class MealLog {
 
   const MealLog({
     this.id,
+    required this.userId,
     this.foodId,
     this.readyMealId,
     required this.name,
@@ -31,6 +33,7 @@ class MealLog {
   factory MealLog.fromJson(Map<String, dynamic> json) {
     return MealLog(
       id: json['id'] as int?,
+      userId: json['user_id'] as int,
       foodId: json['food_id'] as int?,
       readyMealId: json['ready_meal_id'] as int?,
       name: json['name'] as String,
@@ -47,6 +50,7 @@ class MealLog {
   Map<String, dynamic> toJson() {
     return {
       if (id != null) 'id': id,
+      'user_id': userId,
       'food_id': foodId,
       'ready_meal_id': readyMealId,
       'name': name,

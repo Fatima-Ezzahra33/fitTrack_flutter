@@ -43,23 +43,23 @@ class _HomeTabState extends State<HomeTab> {
     }
   }
 
-  String _getFrenchDate() {
+  String _getEnglishDate() {
     final now = DateTime.now();
     final Map<int, String> months = {
-      1: 'Janvier', 2: 'Février', 3: 'Mars', 4: 'Avril', 5: 'Mai', 6: 'Juin',
-      7: 'Juillet', 8: 'Août', 9: 'Septembre', 10: 'Octobre', 11: 'Novembre', 12: 'Décembre'
+      1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June',
+      7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December'
     };
     final Map<int, String> days = {
-      1: 'Lundi', 2: 'Mardi', 3: 'Mercredi', 4: 'Jeudi', 5: 'Vendredi', 6: 'Samedi', 7: 'Dimanche'
+      1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday', 7: 'Sunday'
     };
-    return '${days[now.weekday]} ${now.day} ${months[now.month]} ${now.year}';
+    return '${days[now.weekday]}, ${months[now.month]} ${now.day}, ${now.year}';
   }
 
   String _getBmiCategory(double bmi) {
-    if (bmi < 18.5) return 'Insuffisance pondérale (Maigreur)';
-    if (bmi < 25.0) return 'Poids normal (Santé)';
-    if (bmi < 30.0) return 'Surpoids';
-    return 'Obésité';
+    if (bmi < 18.5) return 'Underweight';
+    if (bmi < 25.0) return 'Normal weight (Healthy)';
+    if (bmi < 30.0) return 'Overweight';
+    return 'Obesity';
   }
 
   @override
@@ -78,7 +78,7 @@ class _HomeTabState extends State<HomeTab> {
 
     final double bmiValue = user.bmi ?? 0.0;
     final String bmiCategory = _getBmiCategory(bmiValue);
-    final String formattedDate = _getFrenchDate();
+    final String formattedDate = _getEnglishDate();
 
     // Workouts completed today count
     final String todayPrefix = DateTime.now().toIso8601String().split('T').first;
@@ -104,7 +104,7 @@ class _HomeTabState extends State<HomeTab> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: AppSizes.lg),
+              const SizedBox(height: AppSizes.xxl),
 
               // Personalized greeting
               Row(
@@ -114,14 +114,14 @@ class _HomeTabState extends State<HomeTab> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Bonjour,',
+                        'Hello,',
                         style: GoogleFonts.inter(
                           fontSize: 14,
                           color: isDark ? AppColors.textDarkSecondary : AppColors.textSecondary,
                         ),
                       ),
                       Text(
-                        '${user.firstName} 👋',
+                        '${user.firstName}',
                         style: GoogleFonts.poppins(
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -190,7 +190,7 @@ class _HomeTabState extends State<HomeTab> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Statut IMC',
+                            'BMI Status',
                             style: GoogleFonts.poppins(
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
@@ -214,7 +214,7 @@ class _HomeTabState extends State<HomeTab> {
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Text(
-                              'Référence : 18.5 - 25.0',
+                              'Reference: 18.5 - 25.0',
                               style: GoogleFonts.inter(
                                 fontSize: 10,
                                 color: Colors.white,
@@ -250,7 +250,7 @@ class _HomeTabState extends State<HomeTab> {
 
               // Weight Overview Card (NEW)
               Text(
-                'Suivi du Poids',
+                'Weight Tracking',
                 style: GoogleFonts.poppins(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -274,7 +274,7 @@ class _HomeTabState extends State<HomeTab> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Dernier poids mesuré',
+                              'Last measured weight',
                               style: GoogleFonts.inter(
                                 fontSize: 12,
                                 color: isDark ? AppColors.textDarkSecondary : AppColors.textSecondary,
@@ -292,10 +292,6 @@ class _HomeTabState extends State<HomeTab> {
                                   ),
                                 ),
                                 const SizedBox(width: 8),
-                                Text(
-                                  trendArrow,
-                                  style: const TextStyle(fontSize: 18),
-                                ),
                               ],
                             ),
                           ],
@@ -316,7 +312,7 @@ class _HomeTabState extends State<HomeTab> {
                             padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
                           ),
                           child: Text(
-                            'Historique',
+                            'History',
                             style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.bold),
                           ),
                         ),
@@ -332,7 +328,7 @@ class _HomeTabState extends State<HomeTab> {
 
               // Today's Summary Section (NEW)
               Text(
-                "Aujourd'hui",
+                'Today',
                 style: GoogleFonts.poppins(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -343,7 +339,7 @@ class _HomeTabState extends State<HomeTab> {
               Row(
                 children: [
                   _buildSummaryCard(
-                    'Consommé',
+                    'Consumed',
                     '${mealCtrl.todayCalories.round()} kcal',
                     Icons.restaurant_menu_rounded,
                     AppColors.primary,
@@ -351,7 +347,7 @@ class _HomeTabState extends State<HomeTab> {
                   ),
                   const SizedBox(width: 10),
                   _buildSummaryCard(
-                    'Brûlé',
+                    'Burned',
                     '${activityCtrl.todayCaloriesBurned.round()} kcal',
                     Icons.local_fire_department_rounded,
                     Colors.orange,
@@ -359,7 +355,7 @@ class _HomeTabState extends State<HomeTab> {
                   ),
                   const SizedBox(width: 10),
                   _buildSummaryCard(
-                    'Séances',
+                    'Sessions',
                     '$todayWorkoutsCount',
                     Icons.check_circle_rounded,
                     AppColors.success,
@@ -371,14 +367,13 @@ class _HomeTabState extends State<HomeTab> {
 
               // Recommended Workouts
               Text(
-                'Entraînements Recommandés',
+                'Recommended Workouts',
                 style: GoogleFonts.poppins(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: isDark ? AppColors.textDarkPrimary : AppColors.textPrimary,
                 ),
               ),
-              const SizedBox(height: AppSizes.md),
               _buildRecommendedExercises(activityCtrl, isDark),
             ],
           ),
@@ -434,7 +429,7 @@ class _HomeTabState extends State<HomeTab> {
     if (exercises.isEmpty) {
       return Center(
         child: Text(
-          'Aucun entraînement disponible.',
+          'No workouts available.',
           style: GoogleFonts.inter(color: AppColors.textSecondary),
         ),
       );

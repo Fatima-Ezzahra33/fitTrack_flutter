@@ -46,7 +46,7 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
 
     if (user == null) {
       return Scaffold(
-        body: Center(child: Text('Utilisateur non connecté', style: GoogleFonts.poppins())),
+        body: Center(child: Text('User not logged in', style: GoogleFonts.poppins())),
       );
     }
 
@@ -73,7 +73,7 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
           onPressed: () => Navigator.of(context).pop(),
         ),
         title: Text(
-          'Historique de Poids',
+          'Weight History',
           style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 20),
         ),
         backgroundColor: Colors.transparent,
@@ -112,7 +112,7 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
 
                     // Log entries list title
                     Text(
-                      'Mesures de Poids',
+                      'Weight Measurements',
                       style: GoogleFonts.poppins(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
@@ -141,12 +141,12 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
   ) {
     return Row(
       children: [
-        _buildMetricCard('Départ', '${start.toStringAsFixed(1)} kg', isDark),
+        _buildMetricCard('Start', '${start.toStringAsFixed(1)} kg', isDark),
         const SizedBox(width: 10),
-        _buildMetricCard('Actuel', '${current.toStringAsFixed(1)} kg', isDark, highlighted: true),
+        _buildMetricCard('Current', '${current.toStringAsFixed(1)} kg', isDark, highlighted: true),
         const SizedBox(width: 10),
         _buildMetricCard(
-          'Objectif',
+          'Target',
           '${target.toStringAsFixed(1)} kg',
           isDark,
           subLabel: '$diffSign${diff.toStringAsFixed(1)} kg',
@@ -229,9 +229,9 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
       padding: const EdgeInsets.all(4),
       child: Row(
         children: [
-          _buildRangeTab('30d', '30 jours', weightCtrl),
-          _buildRangeTab('3m', '3 mois', weightCtrl),
-          _buildRangeTab('6m', '6 mois', weightCtrl),
+          _buildRangeTab('30d', '30 days', weightCtrl),
+          _buildRangeTab('3m', '3 months', weightCtrl),
+          _buildRangeTab('6m', '6 months', weightCtrl),
         ],
       ),
     );
@@ -275,7 +275,7 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
         ),
         child: Center(
           child: Text(
-            'Pas de données de poids enregistrées.',
+            'No weight data recorded.',
             style: GoogleFonts.inter(color: AppColors.textSecondary),
           ),
         ),
@@ -310,7 +310,7 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
         ),
         child: Center(
           child: Text(
-            'Aucune donnée sur cette période',
+            'No data for this period',
             style: GoogleFonts.inter(color: AppColors.textSecondary),
           ),
         ),
@@ -433,7 +433,7 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Text(
-            'Aucun enregistrement disponible',
+            'No records available',
             style: GoogleFonts.inter(color: AppColors.textSecondary, fontStyle: FontStyle.italic),
           ),
         ),
@@ -471,7 +471,7 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
               if (context.mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
-                    content: Text('Mesure supprimée !'),
+                    content: Text('Measurement deleted!'),
                     backgroundColor: Colors.redAccent,
                   ),
                 );
@@ -554,7 +554,7 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
               backgroundColor: isDark ? AppColors.surfaceDark : AppColors.surfaceLight,
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               title: Text(
-                'Enregistrer un Poids',
+                'Record a Weight',
                 style: GoogleFonts.poppins(fontWeight: FontWeight.bold, fontSize: 18),
               ),
               content: SingleChildScrollView(
@@ -566,7 +566,7 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
                       controller: weightCont,
                       keyboardType: const TextInputType.numberWithOptions(decimal: true),
                       decoration: InputDecoration(
-                        labelText: 'Poids (kg)',
+                        labelText: 'Weight (kg)',
                         hintText: 'Ex: 73.5',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
                       ),
@@ -625,8 +625,8 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
                       controller: noteCont,
                       maxLines: 2,
                       decoration: InputDecoration(
-                        labelText: 'Note (optionnel)',
-                        hintText: 'Ex: Mesure matinale à jeun',
+                        labelText: 'Note (optional)',
+                        hintText: 'Ex: Morning fasting measurement',
                         border: OutlineInputBorder(borderRadius: BorderRadius.circular(14)),
                       ),
                     ),
@@ -636,7 +636,7 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(ctx),
-                  child: Text('Annuler', style: GoogleFonts.poppins(color: AppColors.textSecondary, fontWeight: FontWeight.bold)),
+                  child: Text('Cancel', style: GoogleFonts.poppins(color: AppColors.textSecondary, fontWeight: FontWeight.bold)),
                 ),
                 ElevatedButton(
                   onPressed: () async {
@@ -656,7 +656,7 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
                       Navigator.pop(ctx);
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
-                          content: Text('Poids de $weight kg enregistré !'),
+                          content: Text('Weight of $weight kg recorded!'),
                           backgroundColor: AppColors.success,
                         ),
                       );
@@ -666,7 +666,7 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
                     backgroundColor: AppColors.primary,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
                   ),
-                  child: Text('Sauvegarder', style: GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.bold)),
+                  child: Text('Save', style: GoogleFonts.poppins(color: Colors.white, fontWeight: FontWeight.bold)),
                 ),
               ],
             );

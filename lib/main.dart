@@ -52,10 +52,16 @@ void main() async {
           create: (_) => FoodController(dbService: dbService),
         ),
         ChangeNotifierProvider(
-          create: (_) => MealLogController(dbService: dbService),
+          create: (_) => MealLogController(
+            dbService: dbService,
+            prefsService: prefsService,
+          ),
         ),
         ChangeNotifierProvider(
-          create: (_) => ActivityLogController(dbService: dbService),
+          create: (_) => ActivityLogController(
+            dbService: dbService,
+            prefsService: prefsService,
+          ),
         ),
         ChangeNotifierProvider(
           create: (_) => WeightHistoryController(dbService: dbService),
