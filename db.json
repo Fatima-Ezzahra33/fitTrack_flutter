@@ -1,42 +1,6 @@
 {
   "users": [
     {
-      "id": 1780151279734,
-      "first_name": "fati",
-      "last_name": "fluffy",
-      "email": "fati@gmail.com",
-      "password_hash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-      "phone_number": "0648791345",
-      "date_of_birth": "2008-05-14T00:00:00.000",
-      "gender": "Female",
-      "height": 160,
-      "weight": 80,
-      "goal_weight": 60,
-      "goal_type": "lose_weight",
-      "profile_image_url": null,
-      "theme_preference": "system",
-      "created_at": "2026-05-30T15:27:59",
-      "updated_at": "2026-05-30T15:27:59"
-    },
-    {
-      "id": 1780151513565,
-      "first_name": "e",
-      "last_name": "s",
-      "email": "fatimaezzahraabdessettar@gmail.com",
-      "password_hash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
-      "phone_number": "048968549",
-      "date_of_birth": "2008-05-30T00:00:00.000",
-      "gender": "Other",
-      "height": 165,
-      "weight": 90,
-      "goal_weight": 60,
-      "goal_type": "lose_weight",
-      "profile_image_url": null,
-      "theme_preference": "system",
-      "created_at": "2026-05-30T15:31:53",
-      "updated_at": "2026-05-30T15:31:53"
-    },
-    {
       "id": 1780153668697,
       "first_name": "Fatima-Ezzahra",
       "last_name": "Abdessettar",

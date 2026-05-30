@@ -1,10 +1,7 @@
-# 🏋️ FitTrack - Votre Partenaire Santé & Fitness (Version Universitaire)
+# 🏋️ FitTrack - Votre Partenaire Santé & Fitness
 
 <div align="center">
-  <img src="public/app/onboarding/1.jpg" width="200" style="border-radius: 10px; margin: 5px;">
-  <img src="public/app/home/home-populated.jpg" width="200" style="border-radius: 10px; margin: 5px;">
-  <img src="public/app/dark-mode/home.jpg" width="200" style="border-radius: 10px; margin: 5px;">
-  <img src="public/app/food/full-day.jpg" width="200" style="border-radius: 10px; margin: 5px;">
+  <img src="assets/images/fit_track_logo.png" width="200" style="border-radius: 10px; margin: 5px;">
 </div>
 
 <br>
@@ -34,147 +31,225 @@
 
 ## 🎯 Présentation du Projet
 
-**FitTrack** a été conçu pour répondre à la problématique de la fragmentation des applications de santé. L'objectif universitaire de ce projet était de construire un écosystème mobile **complet et robuste** réunissant : le calcul biométrique, la journalisation diététique, l'historique sportif, et l'analyse visuelle des progrès.
+**FitTrack** a été conçu pour répondre à la problématique de la fragmentation des applications de santé. L'objectif de ce projet était de construire un écosystème mobile **complet et robuste** réunissant : le calcul biométrique, la journalisation diététique, l'historique sportif, et l'analyse visuelle des progrès.
 
-Le projet a fait l'objet d'une rigueur particulière concernant la qualité du code (Clean Code), la réutilisabilité des composants UI (`widgets/`), et la fluidité des états asynchrones gérés par `ChangeNotifier`.
+Le projet a fait l'objet d'une rigueur particulière concernant la qualité du code (Clean Code), la réutilisabilité des composants UI (`widgets/`), et la fluidité des états asynchrones.
 
 ---
 
 ## 🎨 Interface Utilisateur & Expérience (UX/UI)
 
-Le design de l'application a été élaboré pour rivaliser avec les standards de l'industrie (Material Design 3). 
-- **Mode Sombre Natif** : L'application bascule automatiquement ou manuellement entre un thème clair épuré et un thème sombre profond (Dark Mode) économiseur d'énergie.
-- **Micro-interactions** : Utilisation d'animations implicites, de transitions partagées, et de retours haptiques pour une immersion totale.
-- **Typographie** : Combinaison réfléchie des polices `Poppins` (Titres) et `Inter` (Corps de texte) via Google Fonts.
+L'interface a été entièrement conçue dans **Figma** avant développement, garantissant une cohérence visuelle rigoureuse et une approche *design-first*. Retrouvez le design initial ici : [Consulter le fichier Figma →](https://www.figma.com/design/x4lyzofeJ8vfj6lR1mJWj1/fitTrack?node-id=206-281&t=JmVzjrNzTG7Z53Rv-1)
 
+Le système de design repose sur trois piliers :
+
+- **Mode Sombre Natif** : Bascule automatique ou manuelle entre un thème clair épuré et un thème sombre profond, optimisé pour la lisibilité et l'économie d'énergie.
+- **Micro-interactions** : Animations implicites, transitions partagées et retours haptiques pour une expérience fluide et immersive.
+- **Système typographique** : Association de `Poppins` (titres) et `Inter` (corps de texte) via Google Fonts, pour une hiérarchie visuelle claire et moderne.
 ---
 
 ## 📱 Fonctionnalités Détaillées et Démonstration Visuelle
 
-### 1. Onboarding & Inscription Multi-Étapes
-Un flux de bienvenue interactif captant l'attention de l'utilisateur, suivi d'une inscription biométrique précise. L'application calcule immédiatement l'objectif calorique et l'IMC en fonction des données saisies (poids, taille, date de naissance, genre, objectif final).
+### 1. Onboarding
 
-<div align="center">
-  <img src="public/app/onboarding/2.jpg" width="180">
-  <img src="public/app/onboarding/3.jpg" width="180">
-  <img src="public/app/register-steps/step1-full.jpg" width="180">
-  <img src="public/app/register-steps/step2-age-calender.jpg" width="180">
-  <img src="public/app/register-steps/step3-select-weight-loss-goal.jpg" width="180">
-</div>
+Un flux de bienvenue interactif conçu pour capter l'attention de l'utilisateur dès le premier lancement.
 
-### 2. Tableau de Bord (Dashboard) & Profil
-Le centre de contrôle. Il agrège les données issues de tous les autres modules (Repas, Sport, Poids). Il propose des recommandations intelligentes et affiche le statut calorique en temps réel.
+| | | | |
+|:---:|:---:|:---:|:---:|
+| <img src="public/app/onboarding/1.jpg" width="180"> | <img src="public/app/onboarding/2.jpg" width="180"> | <img src="public/app/onboarding/3.jpg" width="180"> | <img src="public/app/onboarding/4.jpg" width="180">
 
-<div align="center">
-  <img src="public/app/home/first-login.jpg" width="180">
-  <img src="public/app/home/home-populated.jpg" width="180">
-  <img src="public/app/dark-mode/home.jpg" width="180">
-  <img src="public/app/profile/1.jpg" width="180">
-  <img src="public/app/dark-mode/profile.jpg" width="180">
-</div>
+---
 
-### 3. Nutrition & Planification des Repas
-L'un des moteurs les plus complexes de l'application. Les utilisateurs peuvent fouiller dans une vaste base de données d'ingrédients ou sélectionner des "Ready Meals" (Recettes complètes). La barre de progression colorée (CalorieProgressBar) se met à jour réactivement.
+### 2. Inscription Multi-Étapes
 
-<div align="center">
-  <img src="public/app/food/today-meals-empty-state.jpg" width="180">
-  <img src="public/app/food/logging-food-individual-for-lunch.jpg" width="180">
-  <img src="public/app/food/ready-meal.jpg" width="180">
-  <img src="public/app/food/full-day.jpg" width="180">
-  <img src="public/app/dark-mode/meals-page.jpg" width="180">
-</div>
+Un formulaire d'inscription biométrique progressif. L'application calcule immédiatement l'objectif calorique et l'IMC en fonction des données saisies (poids, taille, date de naissance, genre et objectif final).
 
-### 4. Activités Sportives & Entraînements
-Une bibliothèque d'exercices filtrable par texte. Lorsqu'un utilisateur sélectionne un exercice, un `BottomSheet` interactif calcule instantanément les calories brûlées selon le nombre de minutes entrées (via la variable scalaire de l'exercice).
+| | | |
+|:---:|:---:|:---:|
+| <img src="public/app/register-steps/step1-full.jpg" width="180"> | <img src="public/app/register-steps/step2.jpg" width="180"> | <img src="public/app/register-steps/step3-nothing-selected.jpg" width="180"> |
+| <img src="public/app/register-steps/step3-select-weight-loss-goal.jpg" width="180"> | | |
+---
 
-<div align="center">
-  <img src="public/app/exercises/list.jpg" width="180">
-  <img src="public/app/exercises/exercise-details-to-save-workout.jpg" width="180">
-  <img src="public/app/exercises/message-confirming-workout-saved.jpg" width="180">
-  <img src="public/app/exercises/history.jpg" width="180">
-</div>
+### 3. Tableau de Bord Principal (Dashboard)
 
-### 5. Suivi du Poids & Graphiques (`fl_chart`)
-Un affichage analytique reposant sur des courbes de Bézier pour visualiser les fluctuations corporelles. Les intervalles (30 jours, 3 mois, 6 mois) sont recalculés dynamiquement pour lisser le graphique.
+Le tableau de bord constitue le **centre névralgique** de l'application. Dès la connexion, il agrège en temps réel les données provenant de l'ensemble des modules actifs : nutrition, activité physique et suivi du poids : pour offrir une vue synthétique et immédiate de la journée.
 
-<div align="center">
-  <img src="public/app/weight/record-a-weight.jpg" width="180">
-  <img src="public/app/weight/stats-30-days.jpg" width="180">
-  <img src="public/app/weight/stats-6months.jpg" width="180">
-  <img src="public/app/dark-mode/weight-stats.jpg" width="180">
-</div>
+**Fonctionnalités clés :**
+- Affichage du **solde calorique en temps réel** (calories consommées vs. objectif journalier)
+- Récapitulatif des macronutriments (Protéines, Glucides, Lipides)
+- Recommandations contextuelles basées sur les données de l'utilisateur
+- Indicateurs visuels de progression vers l'objectif fixé lors de l'inscription
 
-### 6. Évolution Corporelle & Appareil Photo
-La prise de conscience corporelle est renforcée par la capture d'images avant/après. Ce module interagit directement avec le hardware du téléphone (Caméra et Galerie) via `image_picker`. Les images sont converties, optimisées et enregistrées de manière permanente dans le `path_provider` (Directory de l'OS).
+| | | |
+|:---:|:---:|:---:|
+| <img src="public/app/home/first-login.jpg" width="180"> | <img src="public/app/home/home-populated.jpg" width="180"> | <img src="public/app/dark-mode/home.jpg" width="180"> |
 
-<div align="center">
-  <img src="public/app/progress/details.jpg" width="180">
-  <img src="public/app/progress/save-progress.jpg" width="180">
-  <img src="public/app/progress/5.jpg" width="180">
-  <img src="public/app/dark-mode/progress-page.jpg" width="180">
-</div>
+---
 
+### 4. Profil Utilisateur
+
+L'écran de profil centralise toutes les informations biométriques et personnelles enregistrées lors de l'inscription. L'utilisateur peut consulter et modifier ses données à tout moment, ce qui déclenche automatiquement un recalcul de l'objectif calorique et de l'IMC.
+
+**Données affichées :**
+- Informations personnelles (nom, genre, date de naissance)
+- Métriques corporelles (poids actuel, taille, IMC calculé)
+- Objectif actif et apport calorique journalier cible
+
+| | |
+|:---:|:---:|
+| <img src="public/app/profile/1.jpg" width="180"> | <img src="public/app/dark-mode/profile.jpg" width="180"> |
+
+---
+
+### 5. Nutrition & Planification des Repas
+
+L'un des modules les plus complexes de l'application. Il repose sur une base de données nutritionnelle étendue et propose deux modes de journalisation complémentaires, couvrant aussi bien les repas composés d'ingrédients individuels que les recettes complètes prêtes à l'emploi.
+
+**Fonctionnalités clés :**
+- Recherche en temps réel dans la base de données d'**ingrédients individuels**
+- Sélection de **"Ready Meals"** : des recettes complètes avec macros pré-calculés
+- Organisation par **type de repas** : Petit-déjeuner, Déjeuner, Dîner, Collation
+- `CalorieProgressBar` : barre de progression colorée se mettant à jour de façon réactive à chaque ajout
+- Historique journalier complet avec détail des apports par repas
+
+| | | |
+|:---:|:---:|:---:|
+| <img src="public/app/food/today-meals-empty-state.jpg" width="180"> | <img src="public/app/food/logging-food-individual-for-lunch.jpg" width="180"> | <img src="public/app/food/ready-meal.jpg" width="180"> |
+| <img src="public/app/food/full-day.jpg" width="180"> | <img src="public/app/dark-mode/meals-page.jpg" width="180"> | <img src="public/app/food/calories-per-week-stats.jpg" width="180">|
+
+---
+
+### 6. Activités Sportives & Entraînements
+
+Ce module met à disposition une bibliothèque d'exercices complète, navigable via une barre de recherche textuelle. Chaque exercice dispose d'une fiche détaillée et d'un mécanisme de calcul dynamique des calories brûlées, adapté à la durée et au profil de l'utilisateur.
+
+**Fonctionnalités clés :**
+- Bibliothèque d'exercices **filtrable en temps réel** par nom ou catégorie
+- `BottomSheet` interactif au tap sur un exercice : saisie de la durée en minutes et **calcul instantané** des calories brûlées via la variable scalaire propre à chaque exercice
+- Enregistrement de la session dans l'historique avec horodatage
+- **Historique des entraînements** : consultation des sessions passées avec détail des calories dépensées
+
+| | | |
+|:---:|:---:|:---:|
+| <img src="public/app/exercises/list.jpg" width="180"> | <img src="public/app/exercises/exercise-details-to-save-workout.jpg" width="180"> | <img src="public/app/exercises/message-confirming-workout-saved.jpg" width="180"> |
+| <img src="public/app/exercises/history.jpg" width="180"> | | |
+
+---
+
+### 7. Suivi du Poids & Visualisation Graphique
+
+Le module de suivi du poids offre une lecture analytique de l'évolution corporelle dans le temps. Il s'appuie sur la librairie `fl_chart` pour générer des courbes fluides et lisibles, permettant à l'utilisateur d'identifier ses tendances et progrès sur différentes périodes.
+
+**Fonctionnalités clés :**
+- Enregistrement manuel d'une nouvelle pesée avec date automatique
+- Courbes de Bézier pour un rendu graphique smooth et professionnel
+- **Trois intervalles temporels** sélectionnables dynamiquement : 30 jours, 3 mois, 6 mois
+- Recalcul automatique des points du graphique selon l'intervalle choisi pour lisser la courbe
+- Affichage du poids minimum, maximum et de la tendance globale
+
+| | | |
+|:---:|:---:|:---:|
+| <img src="public/app/weight/record-a-weight.jpg" width="180"> | <img src="public/app/weight/stats-30-days.jpg" width="180"> | <img src="public/app/weight/stats-3-months.jpg" width="180"> |
+| <img src="public/app/dark-mode/weight-stats.jpg" width="180"> | | |
+
+---
+
+### 8. Évolution Corporelle & Suivi Photo
+
+Ce module renforce la prise de conscience de l'utilisateur en permettant la capture et la comparaison d'images **avant / après**. Il interagit directement avec le hardware de l'appareil pour offrir une expérience native et fluide.
+
+**Fonctionnalités clés :**
+- Accès natif à la **caméra** et à la **galerie** via `image_picker`
+- Conversion et optimisation automatique des images avant stockage
+- Persistance locale des fichiers via `path_provider` (répertoire système de l'OS)
+- Référencement des photos par chemin absolu (`file:///`) dans la base de données
+- Vue comparative pour visualiser sa progression dans le temps
+
+| | | |
+|:---:|:---:|:---:|
+| <img src="public/app/progress/1.jpg" width="180"> | <img src="public/app/progress/2.jpg" width="180"> | <img src="public/app/progress/3.jpg" width="180"> |
+| <img src="public/app/progress/4.jpg" width="180"> | <img src="public/app/progress/5.jpg" width="180"> | <img src="public/app/progress/save-progress.jpg" width="180"> |
+| <img src="public/app/progress/details.jpg" width="180"> | | |
 ---
 
 ## 🏗️ Architecture Logicielle & Design Patterns
 
-L'application respecte les principes **SOLID** et est structurée en respectant un pattern de conception hautement modulable pour garantir scalabilité et maintenabilité.
+L'application respecte les principes **SOLID** et adopte une architecture en couches strictement séparées, inspirée du pattern **MVVM (Model-View-ViewModel)**. Cette approche garantit une séparation claire des responsabilités, facilitant la maintenabilité, la testabilité et la scalabilité du projet.
 
-### L'arbre des dépendances structurelles :
-1. **Couche Données (Models)** : Des classes typées fortement (`User`, `Food`, `ActivityLog`) disposant de méthodes de sérialisation / désérialisation JSON (`fromJson`, `toJson`) avec "Null Safety" stricte.
-2. **Couche Service (Services)** : `ApiService` est un singleton gérant la communication réseau asynchrone (REST API) avec un algorithme de Timeout et d'interception d'exceptions. `PreferencesService` gère les variables de session.
-3. **Couche Contrôle (Controllers)** : Agit comme le pont (ViewModel). Les classes étendent `ChangeNotifier` (`Provider`). Elles injectent l'`ApiService` par constructeur, encapsulent la logique métier complexe (calcul des totaux, filtrage de recherche) et invoquent `notifyListeners()` pour ordonner la mise à jour des widgets.
-4. **Couche Présentation (Views)** : UI pure et widgets sans état complexe. Ils écoutent passivement les Controllers (`context.watch()`) et s'adaptent selon l'état actuel de la donnée (loading, succès, erreur).
+### Couches architecturales :
+
+1. **Couche Données : Models**
+   Classes fortement typées (`User`, `Food`, `ActivityLog`, etc.) avec sérialisation / désérialisation JSON complète (`fromJson` / `toJson`) et conformité stricte au **Null Safety** de Dart.
+
+2. **Couche Service : Services**
+   `ApiService` est un **singleton** centralisant toutes les communications réseau asynchrones (REST). Il intègre un algorithme de gestion des **Timeouts** et d'interception des exceptions réseau. `PreferencesService` gère quant à lui la persistance des variables de session utilisateur.
+
+3. **Couche Contrôle : Controllers (ViewModel)**
+   Pont entre les données et la vue. Chaque controller étend `ChangeNotifier` (pattern **Provider**), reçoit l'`ApiService` par injection de dépendances, encapsule la logique métier (calculs nutritionnels, filtrage, agrégation) et notifie l'interface via `notifyListeners()`.
+
+4. **Couche Présentation : Views**
+   Widgets Flutter sans logique métier embarquée. Ils s'abonnent passivement aux Controllers via `context.watch()` et réagissent aux trois états fondamentaux : **chargement**, **succès** et **erreur**.
 
 ---
 
 ## 🗄️ Modélisation des Données & API
 
-Le projet a migré d'une infrastructure SQLite rigide vers une architecture **Client-Serveur** RESTful en utilisant `json-server`. 
-L'application effectue des requêtes HTTP asynchrones (GET, POST, PUT, DELETE).
+Le projet a évolué d'une architecture SQLite locale vers une architecture **Client-Serveur RESTful** reposant sur `json-server`, simulant un backend de production complet. L'application communique exclusivement via des requêtes HTTP asynchrones (GET, POST, PUT, DELETE).
 
 ### Points de terminaison implémentés (`db.json`) :
-- `/users` : Gestion des profils, mot de passe hashé, et tokens de session logique.
-- `/exercises` : Catalogue des entraînements.
-- `/foods` & `/ready_meals` : Bases de données nutritionnelles.
-- `/meal_logs` : Historique croisé liant l'utilisateur, l'aliment, le type de repas et la date.
-- `/activity_logs` : Historique des sessions d'entraînement.
-- `/weight_entries` : Entrées historiques du poids.
-- `/progress_comparisons` : Référencement des chemins d'accès locaux (`file:///`) des photos avant/après.
 
-*Sécurité OS : Les configurations Android ont été modifiées (`AndroidManifest.xml`) avec l'autorisation `INTERNET` et `usesCleartextTraffic="true"` pour permettre les appels HTTP vers les adresses IP du serveur local.*
+| Endpoint | Description |
+|---|---|
+| `/users` | Gestion des profils utilisateurs, mots de passe hashés et tokens de session |
+| `/exercises` | Catalogue complet des exercices avec variables caloriques |
+| `/foods` | Base de données des ingrédients individuels avec valeurs nutritionnelles |
+| `/ready_meals` | Recettes complètes avec macronutriments pré-calculés |
+| `/meal_logs` | Historique croisé : utilisateur × aliment × type de repas × date |
+| `/activity_logs` | Historique des sessions d'entraînement avec durée et calories |
+| `/weight_entries` | Série temporelle des pesées par utilisateur |
+| `/progress_comparisons` | Références des chemins locaux (`file:///`) des photos avant/après |
+<img src="public/json-server/terminal.png">
 
+| | |
+|:---:|:---:|
+| <img src="public/json-server/users.png"> | <img src="public/json-server/exrecices.png"> |
+| <img src="public/json-server/foods.png"> | <img src="public/json-server/ready-meals.png"> |
+| <img src="public/json-server/meal-logs.png"> |<img src="public/json-server/weught_entries.png">|
+| <img src="public/json-server/activity-logs.png">  | <img src="public/json-server/progress-comparaison.png"> |
 ---
 
-## ⚙️ Instructions d'Installation et d'Évaluation
-
-Pour évaluer et exécuter cette application dans les meilleures conditions :
+## ⚙️ Instructions d'Installation
 
 ### Prérequis
-- SDK Flutter (v3.12.0 ou supérieure)
-- Node.js (pour exécuter l'API simulée)
+
+| Outil | Version minimale |
+|---|---|
+| Flutter SDK | v3.12.0 |
+| Dart SDK | Inclus avec Flutter |
+| Node.js | v16.0.0 ou supérieure |
 
 ### Étapes de déploiement
 
-1. **Cloner le projet et installer les dépendances Flutter :**
-   ```bash
-   flutter clean
-   flutter pub get
-   ```
+**1. Cloner le projet et installer les dépendances Flutter :**
+```bash
+flutter clean
+flutter pub get
+```
 
-2. **Démarrer le serveur API (Obligatoire) :**
-   Le fichier de données `db.json` contient des milliers d'entrées pré-générées pour simuler une application en production. Lancez le serveur local :
-   ```bash
-   npx json-server --watch db.json --port 3000
-   ```
-   > ⚠️ **Important pour les jurys/évaluateurs** : Si vous testez l'application sur un **téléphone physique**, vous devez modifier le fichier `lib/services/api_service.dart` pour y inscrire l'adresse IP locale Wi-Fi de la machine hébergeant le `json-server` (ex: `192.168.1.X`), sinon le téléphone ne pourra pas communiquer avec l'API.
+**2. Démarrer le serveur API *(Étape obligatoire)* :**
 
-3. **Lancer la compilation et l'exécution :**
-   ```bash
-   flutter run
-   ```
+Le fichier `db.json` embarque des seeders de données pour simuler les données réelles d'une application en production.
+```bash
+npx json-server --watch db.json --port 3000
+```
+
+**3. Lancer l'application :**
+```bash
+flutter run
+```
 
 ---
+
 <div align="center">
-  <i>Développé dans le cadre d'un projet universitaire exigeant. Démontre l'expertise en développement mobile cross-platform, l'ingénierie logicielle et le design d'interface (UI/UX).</i>
+  <i>Développé par ABDESSETTAR Fatima-Ezzahra dans le cadre d'un projet universitaire Flutter encadré par Pr. TBATOU Zakaria.</i>
 </div>
