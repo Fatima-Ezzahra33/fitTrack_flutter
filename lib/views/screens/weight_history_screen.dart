@@ -288,8 +288,11 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
 
     // Filter and aggregate based on range
     int daysRange = 30;
-    if (weightCtrl.selectedRange == '3m') daysRange = 90;
-    else if (weightCtrl.selectedRange == '6m') daysRange = 180;
+    if (weightCtrl.selectedRange == '3m') {
+      daysRange = 90;
+    } else if (weightCtrl.selectedRange == '6m') {
+      daysRange = 180;
+    }
 
     final DateTime now = DateTime.now();
     final DateTime cutoff = DateTime(now.year, now.month, now.day).subtract(Duration(days: daysRange));
@@ -331,8 +334,11 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
     final double maxY = spots.map((s) => s.y).reduce((a, b) => a > b ? a : b) + 2;
 
     double xInterval = 6;
-    if (daysRange == 90) xInterval = 15;
-    else if (daysRange == 180) xInterval = 30;
+    if (daysRange == 90) {
+      xInterval = 15;
+    } else if (daysRange == 180) {
+      xInterval = 30;
+    }
 
     return Container(
       height: 220,
