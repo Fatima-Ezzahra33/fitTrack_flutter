@@ -33,7 +33,7 @@ class ReadyMeal {
       }
     }
     return ReadyMeal(
-      id: json['id'] as int?,
+      id: json['id'] != null ? int.tryParse(json['id'].toString()) : null,
       name: json['name'] as String,
       category: json['category'] as String,
       totalCalories: (json['total_calories'] as num).toDouble(),

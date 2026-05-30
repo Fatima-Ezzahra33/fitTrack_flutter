@@ -22,7 +22,7 @@ class Food {
 
   factory Food.fromJson(Map<String, dynamic> json) {
     return Food(
-      id: json['id'] as int?,
+      id: json['id'] != null ? int.tryParse(json['id'].toString()) : null,
       name: json['name'] as String,
       caloriesPer100g: (json['calories_per_100g'] as num).toDouble(),
       proteinsPer100g: (json['proteins_per_100g'] as num).toDouble(),

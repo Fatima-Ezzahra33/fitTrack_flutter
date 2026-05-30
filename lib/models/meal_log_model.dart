@@ -32,7 +32,7 @@ class MealLog {
 
   factory MealLog.fromJson(Map<String, dynamic> json) {
     return MealLog(
-      id: json['id'] as int?,
+      id: json['id'] != null ? int.tryParse(json['id'].toString()) : null,
       userId: json['user_id'] as int,
       foodId: json['food_id'] as int?,
       readyMealId: json['ready_meal_id'] as int?,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../models/weight_entry_model.dart';
-import '../services/database_service.dart';
+import '../services/api_service.dart';
 
 class WeightHistoryController extends ChangeNotifier {
-  final DatabaseService _dbService;
+  final ApiService _apiService;
 
   List<WeightEntry> _weightEntries = [];
   List<WeightEntry> get weightEntries => _weightEntries;
@@ -20,15 +20,15 @@ class WeightHistoryController extends ChangeNotifier {
   String _selectedRange = '30d'; // 30d, 3m, 6m
   String get selectedRange => _selectedRange;
 
-  WeightHistoryController({required DatabaseService dbService}) : _dbService = dbService;
+  WeightHistoryController({required ApiService apiService}) : _apiService = apiService;
 
   Future<void> loadWeightHistory(int userId) async {
     _isLoading = true;
     notifyListeners();
     try {
-      _weightEntries = await _dbService.getWeightEntriesByUser(userId);
-      _latestWeight = await _dbService.getLatestWeight(userId);
-      _previousWeight = await _dbService.getPreviousWeight(userId);
+      _weightEntries = await _apiService.getWeightEntriesByUser(userId);
+      _latestWeight = await _apiService.getLatestWeight(userId);
+      _previousWeight = await _apiService.getPreviousWeight(userId);
     } catch (e) {
       debugPrint('Error loading weight history: $e');
     } finally {
@@ -64,7 +64,7 @@ class WeightHistoryController extends ChangeNotifier {
         date: DateTime.parse(date),
         note: note,
       );
-      await _dbService.insertWeightEntry(entry);
+      await _apiService.insertWeightEntry(entry);
       await loadWeightHistory(userId);
     } catch (e) {
       debugPrint('Error recording weight: $e');
@@ -73,7 +73,7 @@ class WeightHistoryController extends ChangeNotifier {
 
   Future<void> removeWeightEntry(int entryId, int userId) async {
     try {
-      await _dbService.deleteWeightEntry(entryId);
+      await _apiService.deleteWeightEntry(entryId);
       await loadWeightHistory(userId);
     } catch (e) {
       debugPrint('Error deleting weight entry: $e');

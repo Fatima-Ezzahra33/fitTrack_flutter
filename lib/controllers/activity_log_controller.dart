@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import '../models/exercise_model.dart';
 import '../models/activity_log_model.dart';
-import '../services/database_service.dart';
+import '../services/api_service.dart';
 import '../services/preferences_service.dart';
 
 class ActivityLogController extends ChangeNotifier {
-  final DatabaseService _dbService;
+  final ApiService _apiService;
   final PreferencesService _prefsService;
 
   List<Exercise> _exercises = [];
@@ -24,9 +24,9 @@ class ActivityLogController extends ChangeNotifier {
   bool get isLoading => _isLoading;
 
   ActivityLogController({
-    required DatabaseService dbService,
+    required ApiService apiService,
     required PreferencesService prefsService,
-  })  : _dbService = dbService,
+  })  : _apiService = apiService,
         _prefsService = prefsService {
     init();
   }
@@ -42,7 +42,7 @@ class ActivityLogController extends ChangeNotifier {
 
   Future<void> loadExercises() async {
     try {
-      _exercises = await _dbService.getAllExercises();
+      _exercises = await _apiService.getAllExercises();
       _searchResults = List.from(_exercises);
     } catch (e) {
       debugPrint('Error loading exercises: $e');
@@ -54,7 +54,7 @@ class ActivityLogController extends ChangeNotifier {
       _searchResults = List.from(_exercises);
     } else {
       try {
-        _searchResults = await _dbService.searchExercises(query);
+        _searchResults = await _apiService.searchExercises(query);
       } catch (e) {
         debugPrint('Error searching exercises: $e');
       }
@@ -66,9 +66,9 @@ class ActivityLogController extends ChangeNotifier {
     final int? userId = _prefsService.getCurrentUserId();
     if (userId == null) return;
     try {
-      _activityLogs = await _dbService.getActivityLogs(userId);
+      _activityLogs = await _apiService.getActivityLogs(userId);
       final todayStr = DateTime.now().toIso8601String().split('T').first;
-      _todayCaloriesBurned = await _dbService.getDailyCaloriesBurned(userId, todayStr);
+      _todayCaloriesBurned = await _apiService.getDailyCaloriesBurned(userId, todayStr);
     } catch (e) {
       debugPrint('Error loading activity logs: $e');
     }
@@ -98,7 +98,7 @@ class ActivityLogController extends ChangeNotifier {
         dateTime: formattedDateTime,
       );
 
-      await _dbService.insertActivityLog(log);
+      await _apiService.insertActivityLog(log);
       await loadLogs();
     } catch (e) {
       debugPrint('Error logging workout: $e');
@@ -109,7 +109,7 @@ class ActivityLogController extends ChangeNotifier {
     final int? userId = _prefsService.getCurrentUserId();
     if (userId == null) return;
     try {
-      await _dbService.deleteActivityLog(logId, userId);
+      await _apiService.deleteActivityLog(logId, userId);
       await loadLogs();
     } catch (e) {
       debugPrint('Error deleting workout log: $e');

@@ -19,7 +19,7 @@ class WeightEntry {
 
   factory WeightEntry.fromJson(Map<String, dynamic> json) {
     return WeightEntry(
-      id: json['id'] as int?,
+      id: json['id'] != null ? int.tryParse(json['id'].toString()) : null,
       userId: json['user_id'] as int,
       weight: (json['weight'] as num).toDouble(),
       date: DateTime.parse(json['date'] as String),

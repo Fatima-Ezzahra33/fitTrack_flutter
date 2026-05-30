@@ -10,15 +10,15 @@ import 'package:crypto/crypto.dart';
 import 'package:flutter/foundation.dart';
 
 import '../models/user_model.dart';
-import '../services/database_service.dart';
+import '../services/api_service.dart';
 import '../services/preferences_service.dart';
 
 class AuthController extends ChangeNotifier {
-  final DatabaseService _dbService;
+  final ApiService _apiService;
   final PreferencesService _prefsService;
 
   AuthController({
-    required this._dbService,
+    required this._apiService,
     required PreferencesService prefsService,
   })  : _prefsService = prefsService;
 
@@ -59,7 +59,7 @@ class AuthController extends ChangeNotifier {
     if (userId == null) return false;
 
     try {
-      _currentUser = await _dbService.getUserById(userId);
+      _currentUser = await _apiService.getUserById(userId);
       if (_currentUser != null) {
         notifyListeners();
         return true;
@@ -81,7 +81,7 @@ class AuthController extends ChangeNotifier {
 
     try {
       final String hash = _hashPassword(password);
-      final User? user = await _dbService.authenticateUser(email, hash);
+      final User? user = await _apiService.authenticateUser(email, hash);
 
       if (user == null) {
         _error = 'Invalid email or password';
@@ -135,7 +135,7 @@ class AuthController extends ChangeNotifier {
     final String trimmedEmail = email.trim().toLowerCase();
 
     try {
-      final bool exists = await _dbService.emailExists(trimmedEmail);
+      final bool exists = await _apiService.emailExists(trimmedEmail);
       if (exists) {
         _error = 'An account with this email already exists';
         _setLoading(false);
@@ -192,7 +192,7 @@ class AuthController extends ChangeNotifier {
 
     try {
       // Check if email already exists
-      final bool exists = await _dbService.emailExists(_email);
+      final bool exists = await _apiService.emailExists(_email);
       if (exists) {
         _error = 'An account with this email already exists';
         _setLoading(false);
@@ -217,7 +217,7 @@ class AuthController extends ChangeNotifier {
         updatedAt: now,
       );
 
-      final int userId = await _dbService.insertUser(newUser);
+      final int userId = await _apiService.insertUser(newUser);
       _currentUser = newUser.copyWith(id: userId);
       await _prefsService.setCurrentUserId(userId);
 
@@ -234,7 +234,7 @@ class AuthController extends ChangeNotifier {
   /// Update the current user's profile details in SQLite and local state.
   Future<bool> updateUser(User user) async {
     try {
-      await _dbService.updateUser(user);
+      await _apiService.updateUser(user);
       _currentUser = user;
       notifyListeners();
       return true;

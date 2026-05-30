@@ -1,6 +1,6 @@
 /// FitTrack : Main entry point
 ///
-/// Initializes preferences, SQLite database, and setups Providers
+/// Initializes preferences, API service, and setups Providers
 /// for MVC Controllers. Sets light/dark themes dynamically using ThemeController.
 library;
 import 'package:flutter/material.dart';
@@ -16,16 +16,16 @@ import 'controllers/navigation_controller.dart';
 import 'controllers/onboarding_controller.dart';
 import 'controllers/theme_controller.dart';
 import 'core/theme/app_theme.dart';
-import 'services/database_service.dart';
+import 'services/api_service.dart';
 import 'services/preferences_service.dart';
 import 'views/screens/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // 1. Initialize SQLite Database
-  final dbService = DatabaseService();
-  await dbService.initDatabase();
+  // 1. Initialize API Service
+  final apiService = ApiService();
+  await apiService.initDatabase(); // NOOP for HTTP but kept for compatibility
 
   // 2. Initialize SharedPreferences Service
   final prefsService = PreferencesService();
@@ -35,7 +35,7 @@ void main() async {
   runApp(
     MultiProvider(
       providers: [
-        Provider<DatabaseService>.value(value: dbService),
+        Provider<ApiService>.value(value: apiService),
         Provider<PreferencesService>.value(value: prefsService),
         ChangeNotifierProvider(
           create: (_) => ThemeController(prefsService: prefsService),
@@ -45,31 +45,31 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (_) => AuthController(
-            dbService: dbService,
+            apiService: apiService,
             prefsService: prefsService,
           ),
         ),
         ChangeNotifierProvider(
-          create: (_) => FoodController(dbService: dbService),
+          create: (_) => FoodController(apiService: apiService),
         ),
         ChangeNotifierProvider(
           create: (_) => MealLogController(
-            dbService: dbService,
+            apiService: apiService,
             prefsService: prefsService,
           ),
         ),
         ChangeNotifierProvider(
           create: (_) => ActivityLogController(
-            dbService: dbService,
+            apiService: apiService,
             prefsService: prefsService,
           ),
         ),
         ChangeNotifierProvider(
-          create: (_) => WeightHistoryController(dbService: dbService),
+          create: (_) => WeightHistoryController(apiService: apiService),
         ),
         ChangeNotifierProvider(
           create: (_) => ComparisonController(
-            dbService: dbService,
+            apiService: apiService,
             prefsService: prefsService,
           ),
         ),

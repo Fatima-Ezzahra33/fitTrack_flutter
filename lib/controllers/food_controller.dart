@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../models/food_model.dart';
-import '../services/database_service.dart';
+import '../services/api_service.dart';
 
 class FoodController extends ChangeNotifier {
-  final DatabaseService _dbService;
+  final ApiService _apiService;
 
   List<Food> _foods = [];
   List<Food> get foods => _foods;
@@ -14,7 +14,7 @@ class FoodController extends ChangeNotifier {
   bool _isLoading = false;
   bool get isLoading => _isLoading;
 
-  FoodController({required DatabaseService dbService}) : _dbService = dbService {
+  FoodController({required ApiService apiService}) : _apiService = apiService {
     loadAllFoods();
   }
 
@@ -22,7 +22,7 @@ class FoodController extends ChangeNotifier {
     _isLoading = true;
     notifyListeners();
     try {
-      _foods = await _dbService.getAllFoods();
+      _foods = await _apiService.getAllFoods();
       _searchResults = List.from(_foods);
     } catch (e) {
       debugPrint('Error loading foods catalog: $e');
@@ -37,7 +37,7 @@ class FoodController extends ChangeNotifier {
       _searchResults = List.from(_foods);
     } else {
       try {
-        _searchResults = await _dbService.searchFoods(query);
+        _searchResults = await _apiService.searchFoods(query);
       } catch (e) {
         debugPrint('Error searching foods catalog: $e');
       }
@@ -62,7 +62,7 @@ class FoodController extends ChangeNotifier {
         fatsPer100g: fats,
         category: category,
       );
-      await _dbService.insertFood(custom);
+      await _apiService.insertFood(custom);
       await loadAllFoods();
     } catch (e) {
       debugPrint('Error adding custom food: $e');

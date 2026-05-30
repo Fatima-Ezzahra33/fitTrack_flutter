@@ -24,7 +24,7 @@ class ActivityLog {
 
   factory ActivityLog.fromJson(Map<String, dynamic> json) {
     return ActivityLog(
-      id: json['id'] as int?,
+      id: json['id'] != null ? int.tryParse(json['id'].toString()) : null,
       userId: json['user_id'] as int,
       exerciseId: json['exercise_id'] as int,
       name: json['name'] as String,

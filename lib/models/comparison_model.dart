@@ -25,7 +25,7 @@ class ProgressComparison {
   /// Create from a SQLite row map.
   factory ProgressComparison.fromJson(Map<String, dynamic> json) {
     return ProgressComparison(
-      id: json['id'] as int?,
+      id: json['id'] != null ? int.tryParse(json['id'].toString()) : null,
       userId: json['user_id'] as int,
       beforeImagePath: json['before_image_path'] as String,
       afterImagePath: json['after_image_path'] as String,

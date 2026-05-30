@@ -68,7 +68,7 @@ class User {
   /// Create a User from a SQLite row map
   factory User.fromJson(Map<String, dynamic> json) {
     return User(
-      id: json['id'] as int?,
+      id: json['id'] != null ? int.tryParse(json['id'].toString()) : null,
       firstName: json['first_name'] as String,
       lastName: json['last_name'] as String,
       email: json['email'] as String,

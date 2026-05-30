@@ -40,7 +40,7 @@ class Exercise {
     }
 
     return Exercise(
-      id: json['id'] as int?,
+      id: json['id'] != null ? int.tryParse(json['id'].toString()) : null,
       name: json['name'] as String,
       category: json['category'] as String,
       description: json['description'] as String,

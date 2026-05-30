@@ -1,0 +1,595 @@
+{
+  "users": [
+    {
+      "id": 1780151279734,
+      "first_name": "fati",
+      "last_name": "fluffy",
+      "email": "fati@gmail.com",
+      "password_hash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "phone_number": "0648791345",
+      "date_of_birth": "2008-05-14T00:00:00.000",
+      "gender": "Female",
+      "height": 160,
+      "weight": 80,
+      "goal_weight": 60,
+      "goal_type": "lose_weight",
+      "profile_image_url": null,
+      "theme_preference": "system",
+      "created_at": "2026-05-30T15:27:59",
+      "updated_at": "2026-05-30T15:27:59"
+    },
+    {
+      "id": 1780151513565,
+      "first_name": "e",
+      "last_name": "s",
+      "email": "fatimaezzahraabdessettar@gmail.com",
+      "password_hash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "phone_number": "048968549",
+      "date_of_birth": "2008-05-30T00:00:00.000",
+      "gender": "Other",
+      "height": 165,
+      "weight": 90,
+      "goal_weight": 60,
+      "goal_type": "lose_weight",
+      "profile_image_url": null,
+      "theme_preference": "system",
+      "created_at": "2026-05-30T15:31:53",
+      "updated_at": "2026-05-30T15:31:53"
+    }
+  ],
+  "exercises": [
+    {
+      "id": "1",
+      "name": "Running",
+      "category": "Cardio",
+      "description": "Moderate pace running outdoors or on a treadmill.",
+      "duration_minutes": 30,
+      "calories_per_minute": 10,
+      "steps": "[\"Warm up for 5 minutes\",\"Run at a steady pace\",\"Stretch at the end\"]"
+    },
+    {
+      "id": "2",
+      "name": "Push-ups",
+      "category": "Strength",
+      "description": "Bodyweight exercise targeting the chest and triceps.",
+      "duration_minutes": 10,
+      "calories_per_minute": 7,
+      "steps": "[\"Get into a plank position\",\"Lower your chest\",\"Push up\"]"
+    },
+    {
+      "id": "3",
+      "name": "Yoga",
+      "category": "Flexibility",
+      "description": "Sequence of postures for flexibility and relaxation.",
+      "duration_minutes": 20,
+      "calories_per_minute": 4.5,
+      "steps": "[\"Sun salutations\",\"Balancing postures\",\"Final meditation\"]"
+    },
+    {
+      "id": "4",
+      "name": "Squats",
+      "category": "Strength",
+      "description": "Compound exercise targeting the quadriceps and glutes.",
+      "duration_minutes": 15,
+      "calories_per_minute": 8,
+      "steps": "[\"Spread your feet\",\"Lower as if sitting on a chair\",\"Push back up through your heels\"]"
+    },
+    {
+      "id": "5",
+      "name": "Jump Rope",
+      "category": "Cardio",
+      "description": "High-intensity exercise for cardio and endurance.",
+      "duration_minutes": 10,
+      "calories_per_minute": 12,
+      "steps": "[\"Jump on your toes\",\"Keep elbows close to the body\",\"Breathe regularly\"]"
+    }
+  ],
+  "weight_entries": [],
+  "foods": [
+    {
+      "name": "Apple",
+      "calories_per_100g": 52,
+      "proteins_per_100g": 0.3,
+      "carbs_per_100g": 13.8,
+      "fats_per_100g": 0.2,
+      "category": "fruit",
+      "id": "1"
+    },
+    {
+      "name": "Banana",
+      "calories_per_100g": 89,
+      "proteins_per_100g": 1.1,
+      "carbs_per_100g": 22.8,
+      "fats_per_100g": 0.3,
+      "category": "fruit",
+      "id": "2"
+    },
+    {
+      "name": "Orange",
+      "calories_per_100g": 47,
+      "proteins_per_100g": 0.9,
+      "carbs_per_100g": 11.8,
+      "fats_per_100g": 0.1,
+      "category": "fruit",
+      "id": "3"
+    },
+    {
+      "name": "Strawberry",
+      "calories_per_100g": 32,
+      "proteins_per_100g": 0.7,
+      "carbs_per_100g": 7.7,
+      "fats_per_100g": 0.3,
+      "category": "fruit",
+      "id": "4"
+    },
+    {
+      "name": "Raspberry",
+      "calories_per_100g": 52,
+      "proteins_per_100g": 1.2,
+      "carbs_per_100g": 11.9,
+      "fats_per_100g": 0.7,
+      "category": "fruit",
+      "id": "5"
+    },
+    {
+      "name": "Blueberry",
+      "calories_per_100g": 57,
+      "proteins_per_100g": 0.7,
+      "carbs_per_100g": 14.5,
+      "fats_per_100g": 0.3,
+      "category": "fruit",
+      "id": "6"
+    },
+    {
+      "name": "Grape",
+      "calories_per_100g": 67,
+      "proteins_per_100g": 0.6,
+      "carbs_per_100g": 17.2,
+      "fats_per_100g": 0.4,
+      "category": "fruit",
+      "id": "7"
+    },
+    {
+      "name": "Peach",
+      "calories_per_100g": 39,
+      "proteins_per_100g": 0.9,
+      "carbs_per_100g": 9.5,
+      "fats_per_100g": 0.3,
+      "category": "fruit",
+      "id": "8"
+    },
+    {
+      "name": "Pear",
+      "calories_per_100g": 57,
+      "proteins_per_100g": 0.4,
+      "carbs_per_100g": 15.2,
+      "fats_per_100g": 0.1,
+      "category": "fruit",
+      "id": "9"
+    },
+    {
+      "name": "Kiwi",
+      "calories_per_100g": 61,
+      "proteins_per_100g": 1.1,
+      "carbs_per_100g": 14.7,
+      "fats_per_100g": 0.5,
+      "category": "fruit",
+      "id": "10"
+    },
+    {
+      "name": "Avocado",
+      "calories_per_100g": 160,
+      "proteins_per_100g": 2,
+      "carbs_per_100g": 8.5,
+      "fats_per_100g": 14.7,
+      "category": "fruit",
+      "id": "11"
+    },
+    {
+      "name": "Tomato",
+      "calories_per_100g": 18,
+      "proteins_per_100g": 0.9,
+      "carbs_per_100g": 3.9,
+      "fats_per_100g": 0.2,
+      "category": "vegetable",
+      "id": "12"
+    },
+    {
+      "name": "Carrot",
+      "calories_per_100g": 41,
+      "proteins_per_100g": 0.9,
+      "carbs_per_100g": 9.6,
+      "fats_per_100g": 0.2,
+      "category": "vegetable",
+      "id": "13"
+    },
+    {
+      "name": "Broccoli",
+      "calories_per_100g": 34,
+      "proteins_per_100g": 2.8,
+      "carbs_per_100g": 6.6,
+      "fats_per_100g": 0.4,
+      "category": "vegetable",
+      "id": "14"
+    },
+    {
+      "name": "Spinach",
+      "calories_per_100g": 23,
+      "proteins_per_100g": 2.9,
+      "carbs_per_100g": 3.6,
+      "fats_per_100g": 0.4,
+      "category": "vegetable",
+      "id": "15"
+    },
+    {
+      "name": "Green Salad",
+      "calories_per_100g": 15,
+      "proteins_per_100g": 1.4,
+      "carbs_per_100g": 2.9,
+      "fats_per_100g": 0.2,
+      "category": "vegetable",
+      "id": "16"
+    },
+    {
+      "name": "Cucumber",
+      "calories_per_100g": 15,
+      "proteins_per_100g": 0.7,
+      "carbs_per_100g": 3.6,
+      "fats_per_100g": 0.1,
+      "category": "vegetable",
+      "id": "17"
+    },
+    {
+      "name": "Zucchini",
+      "calories_per_100g": 17,
+      "proteins_per_100g": 1.2,
+      "carbs_per_100g": 3.1,
+      "fats_per_100g": 0.3,
+      "category": "vegetable",
+      "id": "18"
+    },
+    {
+      "name": "Bell Pepper",
+      "calories_per_100g": 20,
+      "proteins_per_100g": 0.9,
+      "carbs_per_100g": 4.6,
+      "fats_per_100g": 0.2,
+      "category": "vegetable",
+      "id": "19"
+    },
+    {
+      "name": "Onion",
+      "calories_per_100g": 40,
+      "proteins_per_100g": 1.1,
+      "carbs_per_100g": 9.3,
+      "fats_per_100g": 0.1,
+      "category": "vegetable",
+      "id": "20"
+    },
+    {
+      "name": "Garlic",
+      "calories_per_100g": 149,
+      "proteins_per_100g": 6.4,
+      "carbs_per_100g": 33.1,
+      "fats_per_100g": 0.5,
+      "category": "vegetable",
+      "id": "21"
+    },
+    {
+      "name": "Chicken Breast",
+      "calories_per_100g": 165,
+      "proteins_per_100g": 31,
+      "carbs_per_100g": 0,
+      "fats_per_100g": 3.6,
+      "category": "protein",
+      "id": "22"
+    },
+    {
+      "name": "Salmon",
+      "calories_per_100g": 208,
+      "proteins_per_100g": 20,
+      "carbs_per_100g": 0,
+      "fats_per_100g": 13,
+      "category": "protein",
+      "id": "23"
+    },
+    {
+      "name": "Egg",
+      "calories_per_100g": 155,
+      "proteins_per_100g": 13,
+      "carbs_per_100g": 1.1,
+      "fats_per_100g": 11,
+      "category": "protein",
+      "id": "24"
+    },
+    {
+      "name": "Ground Beef",
+      "calories_per_100g": 250,
+      "proteins_per_100g": 26,
+      "carbs_per_100g": 0,
+      "fats_per_100g": 15,
+      "category": "protein",
+      "id": "25"
+    },
+    {
+      "name": "Canned Tuna",
+      "calories_per_100g": 116,
+      "proteins_per_100g": 26,
+      "carbs_per_100g": 0,
+      "fats_per_100g": 1,
+      "category": "protein",
+      "id": "26"
+    },
+    {
+      "name": "Tofu",
+      "calories_per_100g": 76,
+      "proteins_per_100g": 8,
+      "carbs_per_100g": 1.9,
+      "fats_per_100g": 4.8,
+      "category": "protein",
+      "id": "27"
+    },
+    {
+      "name": "Lentils",
+      "calories_per_100g": 116,
+      "proteins_per_100g": 9,
+      "carbs_per_100g": 20,
+      "fats_per_100g": 0.4,
+      "category": "protein",
+      "id": "28"
+    },
+    {
+      "name": "Chickpeas",
+      "calories_per_100g": 164,
+      "proteins_per_100g": 8.9,
+      "carbs_per_100g": 27.4,
+      "fats_per_100g": 2.6,
+      "category": "protein",
+      "id": "29"
+    },
+    {
+      "name": "Turkey",
+      "calories_per_100g": 135,
+      "proteins_per_100g": 30,
+      "carbs_per_100g": 0,
+      "fats_per_100g": 1.5,
+      "category": "protein",
+      "id": "30"
+    },
+    {
+      "name": "White Rice",
+      "calories_per_100g": 130,
+      "proteins_per_100g": 2.7,
+      "carbs_per_100g": 28,
+      "fats_per_100g": 0.3,
+      "category": "grain",
+      "id": "31"
+    },
+    {
+      "name": "Brown Rice",
+      "calories_per_100g": 111,
+      "proteins_per_100g": 2.6,
+      "carbs_per_100g": 23,
+      "fats_per_100g": 0.9,
+      "category": "grain",
+      "id": "32"
+    },
+    {
+      "name": "Oats",
+      "calories_per_100g": 389,
+      "proteins_per_100g": 16.9,
+      "carbs_per_100g": 66.3,
+      "fats_per_100g": 6.9,
+      "category": "grain",
+      "id": "33"
+    },
+    {
+      "name": "Whole Wheat Bread",
+      "calories_per_100g": 247,
+      "proteins_per_100g": 13,
+      "carbs_per_100g": 41,
+      "fats_per_100g": 3.4,
+      "category": "grain",
+      "id": "34"
+    },
+    {
+      "name": "Pasta",
+      "calories_per_100g": 131,
+      "proteins_per_100g": 5,
+      "carbs_per_100g": 25,
+      "fats_per_100g": 1.1,
+      "category": "grain",
+      "id": "35"
+    },
+    {
+      "name": "Quinoa",
+      "calories_per_100g": 120,
+      "proteins_per_100g": 4.4,
+      "carbs_per_100g": 21.3,
+      "fats_per_100g": 1.9,
+      "category": "grain",
+      "id": "36"
+    },
+    {
+      "name": "Sweet Potato",
+      "calories_per_100g": 86,
+      "proteins_per_100g": 1.6,
+      "carbs_per_100g": 20.1,
+      "fats_per_100g": 0.1,
+      "category": "grain",
+      "id": "37"
+    },
+    {
+      "name": "Olive Oil",
+      "calories_per_100g": 884,
+      "proteins_per_100g": 0,
+      "carbs_per_100g": 0,
+      "fats_per_100g": 100,
+      "category": "other",
+      "id": "38"
+    },
+    {
+      "name": "Almonds",
+      "calories_per_100g": 579,
+      "proteins_per_100g": 21,
+      "carbs_per_100g": 22,
+      "fats_per_100g": 49,
+      "category": "other",
+      "id": "39"
+    },
+    {
+      "name": "Walnuts",
+      "calories_per_100g": 654,
+      "proteins_per_100g": 15,
+      "carbs_per_100g": 13.7,
+      "fats_per_100g": 65.2,
+      "category": "other",
+      "id": "40"
+    },
+    {
+      "name": "Honey",
+      "calories_per_100g": 304,
+      "proteins_per_100g": 0.3,
+      "carbs_per_100g": 82.4,
+      "fats_per_100g": 0,
+      "category": "other",
+      "id": "41"
+    },
+    {
+      "name": "Dark Chocolate",
+      "calories_per_100g": 546,
+      "proteins_per_100g": 4.9,
+      "carbs_per_100g": 61,
+      "fats_per_100g": 31,
+      "category": "other",
+      "id": "42"
+    },
+    {
+      "name": "Peanut Butter",
+      "calories_per_100g": 588,
+      "proteins_per_100g": 25,
+      "carbs_per_100g": 20,
+      "fats_per_100g": 50,
+      "category": "other",
+      "id": "43"
+    },
+    {
+      "name": "Chia Seeds",
+      "calories_per_100g": 486,
+      "proteins_per_100g": 16.5,
+      "carbs_per_100g": 42.1,
+      "fats_per_100g": 30.7,
+      "category": "other",
+      "id": "44"
+    }
+  ],
+  "ready_meals": [
+    {
+      "id": "1",
+      "name": "Blueberry Pancakes",
+      "category": "breakfast",
+      "total_calories": 350,
+      "image_url": "pancakes",
+      "ingredients": "[\"Blueberries\",\"Oats\",\"Egg\",\"Semi-skimmed Milk\",\"Honey\"]"
+    },
+    {
+      "id": "2",
+      "name": "Grilled Chicken Salad",
+      "category": "lunch",
+      "total_calories": 400,
+      "image_url": "chicken_salad",
+      "ingredients": "[\"Chicken Breast\",\"Green Salad\",\"Tomato\",\"Cucumber\",\"Olive Oil\"]"
+    },
+    {
+      "id": "3",
+      "name": "Grilled Salmon & Sweet Potato",
+      "category": "dinner",
+      "total_calories": 550,
+      "image_url": "salmon_sweetpot",
+      "ingredients": "[\"Salmon\",\"Sweet Potato\",\"Broccoli\",\"Olive Oil\"]"
+    },
+    {
+      "id": "4",
+      "name": "Banana Honey Oatmeal",
+      "category": "breakfast",
+      "total_calories": 280,
+      "image_url": "oatmeal",
+      "ingredients": "[\"Oats\",\"Banana\",\"Semi-skimmed Milk\",\"Honey\",\"Almonds\"]"
+    },
+    {
+      "id": "5",
+      "name": "Strawberry Protein Smoothie",
+      "category": "snack",
+      "total_calories": 220,
+      "image_url": "smoothie",
+      "ingredients": "[\"Strawberry\",\"Greek Yogurt\",\"Semi-skimmed Milk\",\"Honey\",\"Chia Seeds\"]"
+    },
+    {
+      "id": "6",
+      "name": "Spinach Omelet",
+      "category": "breakfast",
+      "total_calories": 250,
+      "image_url": "omelette",
+      "ingredients": "[\"Egg\",\"Spinach\",\"Tomato\",\"Cottage Cheese\",\"Butter\"]"
+    },
+    {
+      "id": "7",
+      "name": "Avocado & Quinoa Bowl",
+      "category": "lunch",
+      "total_calories": 450,
+      "image_url": "quinoa_bowl",
+      "ingredients": "[\"Avocado\",\"Quinoa\",\"Tomato\",\"Cucumber\",\"Olive Oil\"]"
+    },
+    {
+      "id": "8",
+      "name": "Pasta Bolognese",
+      "category": "dinner",
+      "total_calories": 600,
+      "image_url": "pasta_bolognese",
+      "ingredients": "[\"Pasta\",\"Ground Beef\",\"Tomato\",\"Onion\",\"Olive Oil\"]"
+    },
+    {
+      "id": "9",
+      "name": "Yogurt with Fruits & Nuts",
+      "category": "snack",
+      "total_calories": 180,
+      "image_url": "yogurt_nuts",
+      "ingredients": "[\"Greek Yogurt\",\"Raspberry\",\"Blueberry\",\"Walnuts\",\"Honey\"]"
+    },
+    {
+      "id": "10",
+      "name": "Tofu Stir-fry with Broccoli",
+      "category": "lunch",
+      "total_calories": 320,
+      "image_url": "tofu_broccoli",
+      "ingredients": "[\"Tofu\",\"Broccoli\",\"Zucchini\",\"Bell Pepper\",\"Olive Oil\"]"
+    }
+  ],
+  "meal_logs": [
+    {
+      "id": 1780153162930,
+      "user_id": 1780151279734,
+      "food_id": null,
+      "ready_meal_id": 4,
+      "name": "Banana Honey Oatmeal",
+      "grams": 300,
+      "calories": 280,
+      "proteins": 18,
+      "carbs": 45,
+      "fats": 12,
+      "meal_type": "Breakfast",
+      "date": "2026-05-30"
+    }
+  ],
+  "activity_logs": [],
+  "progress_comparisons": [
+    {
+      "id": 1780151330849,
+      "user_id": 1780151279734,
+      "before_image_path": "/data/user/0/com.example.fit_track/app_flutter/progress_images/before_1780151330843.jpg",
+      "after_image_path": "/data/user/0/com.example.fit_track/app_flutter/progress_images/after_1780151330843.jpg",
+      "note": null,
+      "created_at": "2026-05-30T15:28:50.848006"
+    }
+  ]
+}

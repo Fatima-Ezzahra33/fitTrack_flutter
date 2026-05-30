@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import '../models/meal_log_model.dart';
 import '../models/ready_meal_model.dart';
 import '../models/food_model.dart';
-import '../services/database_service.dart';
+import '../services/api_service.dart';
 import '../services/preferences_service.dart';
 
 class MealLogController extends ChangeNotifier {
-  final DatabaseService _dbService;
+  final ApiService _apiService;
   final PreferencesService _prefsService;
 
   List<MealLog> _logs = [];
@@ -40,9 +40,9 @@ class MealLogController extends ChangeNotifier {
   bool get isLoading => _isLoading;
 
   MealLogController({
-    required DatabaseService dbService,
+    required ApiService apiService,
     required PreferencesService prefsService,
-  })  : _dbService = dbService,
+  })  : _apiService = apiService,
         _prefsService = prefsService {
     init();
   }
@@ -58,7 +58,7 @@ class MealLogController extends ChangeNotifier {
 
   Future<void> loadReadyMeals() async {
     try {
-      _readyMeals = await _dbService.getAllReadyMeals();
+      _readyMeals = await _apiService.getAllReadyMeals();
     } catch (e) {
       debugPrint('Error loading ready meals: $e');
     }
@@ -69,9 +69,9 @@ class MealLogController extends ChangeNotifier {
     final int? userId = _prefsService.getCurrentUserId();
     if (userId == null) return;
     try {
-      _logs = await _dbService.getMealLogsForDate(userId, date);
+      _logs = await _apiService.getMealLogsForDate(userId, date);
       _calculateTodayNutrientTotals();
-      _weeklyCaloriesData = await _dbService.getWeeklyCaloriesData(userId, date);
+      _weeklyCaloriesData = await _apiService.getWeeklyCaloriesData(userId, date);
     } catch (e) {
       debugPrint('Error loading meal logs: $e');
     }
@@ -121,7 +121,7 @@ class MealLogController extends ChangeNotifier {
         date: _selectedDate,
       );
 
-      await _dbService.insertMealLog(log);
+      await _apiService.insertMealLog(log);
       await loadLogsForDate(_selectedDate);
     } catch (e) {
       debugPrint('Error logging food: $e');
@@ -149,7 +149,7 @@ class MealLogController extends ChangeNotifier {
         date: _selectedDate,
       );
 
-      await _dbService.insertMealLog(log);
+      await _apiService.insertMealLog(log);
       await loadLogsForDate(_selectedDate);
     } catch (e) {
       debugPrint('Error logging recipe: $e');
@@ -160,7 +160,7 @@ class MealLogController extends ChangeNotifier {
     final int? userId = _prefsService.getCurrentUserId();
     if (userId == null) return;
     try {
-      await _dbService.deleteMealLog(logId, userId);
+      await _apiService.deleteMealLog(logId, userId);
       await loadLogsForDate(_selectedDate);
     } catch (e) {
       debugPrint('Error removing meal log: $e');

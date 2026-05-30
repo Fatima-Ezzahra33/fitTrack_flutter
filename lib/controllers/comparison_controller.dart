@@ -12,17 +12,17 @@ import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
 import '../models/comparison_model.dart';
-import '../services/database_service.dart';
+import '../services/api_service.dart';
 import '../services/preferences_service.dart';
 
 class ComparisonController extends ChangeNotifier {
-  final DatabaseService _dbService;
+  final ApiService _apiService;
   final PreferencesService _prefsService;
 
   ComparisonController({
-    required DatabaseService dbService,
+    required ApiService apiService,
     required PreferencesService prefsService,
-  })  : _dbService = dbService,
+  })  : _apiService = apiService,
         _prefsService = prefsService;
 
   // ── State ─────────────────────────────────────────────────────────
@@ -46,7 +46,7 @@ class ComparisonController extends ChangeNotifier {
     notifyListeners();
 
     try {
-      _comparisons = await _dbService.getComparisonsByUser(userId);
+      _comparisons = await _apiService.getComparisonsByUser(userId);
     } catch (e) {
       debugPrint('Failed to load comparisons: $e');
     } finally {
@@ -103,7 +103,7 @@ class ComparisonController extends ChangeNotifier {
         createdAt: DateTime.now().toIso8601String(),
       );
 
-      final int id = await _dbService.insertComparison(comparison);
+      final int id = await _apiService.insertComparison(comparison);
 
       // 3. Add to local list (with the generated id).
       _comparisons.insert(0, comparison.copyWith(id: id));
@@ -130,7 +130,7 @@ class ComparisonController extends ChangeNotifier {
           .cast<ProgressComparison?>()
           .firstWhere((c) => c!.id == id, orElse: () => null);
 
-      await _dbService.deleteComparison(id, userId);
+      await _apiService.deleteComparison(id, userId);
 
       // Remove files from disk.
       if (entry != null) {
