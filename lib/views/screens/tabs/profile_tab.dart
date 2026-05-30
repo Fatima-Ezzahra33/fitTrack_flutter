@@ -1,4 +1,4 @@
-/// FitTrack — Profile Tab
+/// FitTrack : Profile Tab
 ///
 /// Implements user profile configuration. Displays personal data, age (via getter),
 /// BMI, training stats, a dark theme preference toggle (via ThemeController),

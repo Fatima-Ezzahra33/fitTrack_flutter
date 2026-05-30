@@ -1,11 +1,12 @@
-/// FitTrack — Database service (sqflite)
+/// FitTrack : Database service (sqflite)
 ///
 /// Singleton service encapsulating all SQLite operations.
-/// Manages tables: users, exercises, weight_entries, foods, ready_meals, meal_logs, activity_logs.
+/// Manages tables: users, exercises, weight_entries, foods, ready_meals, meal_logs, activity_logs, progress_comparisons.
 library;
 import 'dart:convert';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
+import '../models/comparison_model.dart';
 import '../models/exercise_model.dart';
 import '../models/food_model.dart';
 import '../models/ready_meal_model.dart';
@@ -22,7 +23,7 @@ class DatabaseService {
   Database? _database;
 
   static const String _dbName = 'fit_track_redesign_v2.db';
-  static const int _dbVersion = 2;
+  static const int _dbVersion = 3;
 
   /// Get the database instance, initializing if needed.
   Future<Database> get database async {
@@ -43,7 +44,7 @@ class DatabaseService {
     );
   }
 
-  /// Public initialization method — call from main.dart
+  /// Public initialization method : call from main.dart
   Future<void> initDatabase() async {
     _database = await _initDatabase();
   }
@@ -165,12 +166,26 @@ class DatabaseService {
       )
     ''');
 
+    // ── Progress Comparisons Table ──────────────────────────────────
+    batch.execute('''
+      CREATE TABLE progress_comparisons (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        user_id INTEGER NOT NULL,
+        before_image_path TEXT NOT NULL,
+        after_image_path TEXT NOT NULL,
+        note TEXT,
+        created_at TEXT NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+      )
+    ''');
+
     // ── Indexes for performance ─────────────────────────────────────
     batch.execute('CREATE INDEX idx_weight_entries_user ON weight_entries(user_id)');
     batch.execute('CREATE INDEX idx_meal_logs_user ON meal_logs(user_id)');
     batch.execute('CREATE INDEX idx_meal_logs_date ON meal_logs(date)');
     batch.execute('CREATE INDEX idx_activity_logs_user ON activity_logs(user_id)');
     batch.execute('CREATE INDEX idx_activity_logs_date ON activity_logs(date_time)');
+    batch.execute('CREATE INDEX idx_progress_comparisons_user ON progress_comparisons(user_id)');
 
     // Seeding default exercises
     _seedExercises(batch);
@@ -193,6 +208,20 @@ class DatabaseService {
       // Update the user_id to match the first user in the DB (fallback for dev environments)
       await db.execute('UPDATE meal_logs SET user_id = (SELECT id FROM users LIMIT 1) WHERE user_id = 0');
       await db.execute('UPDATE activity_logs SET user_id = (SELECT id FROM users LIMIT 1) WHERE user_id = 0');
+    }
+    if (oldVersion < 3) {
+      await db.execute('''
+        CREATE TABLE progress_comparisons (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          user_id INTEGER NOT NULL,
+          before_image_path TEXT NOT NULL,
+          after_image_path TEXT NOT NULL,
+          note TEXT,
+          created_at TEXT NOT NULL,
+          FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+        )
+      ''');
+      await db.execute('CREATE INDEX idx_progress_comparisons_user ON progress_comparisons(user_id)');
     }
   }
 
@@ -640,6 +669,35 @@ class DatabaseService {
       result[dateStr] = cal;
     }
     return result;
+  }
+
+  // ════════════════════════════════════════════════════════════════════
+  // PROGRESS COMPARISONS CRUD
+  // ════════════════════════════════════════════════════════════════════
+
+  Future<int> insertComparison(ProgressComparison comparison) async {
+    final db = await database;
+    return db.insert('progress_comparisons', comparison.toJson());
+  }
+
+  Future<List<ProgressComparison>> getComparisonsByUser(int userId) async {
+    final db = await database;
+    final List<Map<String, dynamic>> results = await db.query(
+      'progress_comparisons',
+      where: 'user_id = ?',
+      whereArgs: [userId],
+      orderBy: 'created_at DESC',
+    );
+    return results.map((row) => ProgressComparison.fromJson(row)).toList();
+  }
+
+  Future<int> deleteComparison(int id, int userId) async {
+    final db = await database;
+    return db.delete(
+      'progress_comparisons',
+      where: 'id = ? AND user_id = ?',
+      whereArgs: [id, userId],
+    );
   }
 
   // ════════════════════════════════════════════════════════════════════

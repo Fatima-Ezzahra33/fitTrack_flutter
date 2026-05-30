@@ -1,4 +1,4 @@
-/// FitTrack — Onboarding controller
+/// FitTrack : Onboarding controller
 ///
 /// Manages the onboarding flow: page navigation, progress tracking,
 /// and marking onboarding as complete via PreferencesService.

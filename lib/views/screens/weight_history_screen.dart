@@ -1,4 +1,4 @@
-/// FitTrack — Weight History Screen (New)
+/// FitTrack : Weight History Screen 
 ///
 /// Features a detailed weight progress dashboard:
 /// - Weight statistics (current, start, target)
@@ -286,21 +286,23 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
     final sorted = List<WeightEntry>.from(weightCtrl.weightEntries)
       ..sort((a, b) => a.date.compareTo(b.date));
 
-    // Filter based on range
-    DateTime cutoff = DateTime.now();
-    if (weightCtrl.selectedRange == '30d') {
-      cutoff = DateTime.now().subtract(const Duration(days: 30));
-    } else if (weightCtrl.selectedRange == '3m') {
-      cutoff = DateTime.now().subtract(const Duration(days: 90));
-    } else if (weightCtrl.selectedRange == '6m') {
-      cutoff = DateTime.now().subtract(const Duration(days: 180));
+    // Filter and aggregate based on range
+    int daysRange = 30;
+    if (weightCtrl.selectedRange == '3m') daysRange = 90;
+    else if (weightCtrl.selectedRange == '6m') daysRange = 180;
+
+    final DateTime now = DateTime.now();
+    final DateTime cutoff = DateTime(now.year, now.month, now.day).subtract(Duration(days: daysRange));
+
+    final Map<DateTime, List<double>> dailyWeights = {};
+    for (var e in sorted) {
+      if (e.date.isAfter(cutoff) || e.date.isAtSameMomentAs(cutoff)) {
+        final day = DateTime(e.date.year, e.date.month, e.date.day);
+        dailyWeights.putIfAbsent(day, () => []).add(e.weight);
+      }
     }
 
-    final display = sorted.where((e) {
-      return e.date.isAfter(cutoff);
-    }).toList();
-
-    if (display.isEmpty) {
+    if (dailyWeights.isEmpty) {
       return Container(
         height: 200,
         decoration: BoxDecoration(
@@ -318,12 +320,19 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
     }
 
     final spots = <FlSpot>[];
-    for (int i = 0; i < display.length; i++) {
-      spots.add(FlSpot(i.toDouble(), display[i].weight));
+    for (var entry in dailyWeights.entries) {
+      final avgWeight = entry.value.reduce((a, b) => a + b) / entry.value.length;
+      final double x = entry.key.difference(cutoff).inHours / 24.0;
+      spots.add(FlSpot(x, avgWeight));
     }
+    spots.sort((a, b) => a.x.compareTo(b.x));
 
     final double minY = spots.map((s) => s.y).reduce((a, b) => a < b ? a : b) - 2;
     final double maxY = spots.map((s) => s.y).reduce((a, b) => a > b ? a : b) + 2;
+
+    double xInterval = 6;
+    if (daysRange == 90) xInterval = 15;
+    else if (daysRange == 180) xInterval = 30;
 
     return Container(
       height: 220,
@@ -368,19 +377,18 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
             bottomTitles: AxisTitles(
               sideTitles: SideTitles(
                 showTitles: true,
+                interval: xInterval,
                 getTitlesWidget: (value, meta) {
-                  final idx = value.toInt();
-                  if (idx >= 0 && idx < display.length) {
-                    final date = display[idx].date;
-                    return Padding(
-                      padding: const EdgeInsets.only(top: 6),
-                      child: Text(
-                        DateFormat('dd/MM').format(date),
-                        style: GoogleFonts.inter(fontSize: 9, color: AppColors.textSecondary, fontWeight: FontWeight.bold),
-                      ),
-                    );
-                  }
-                  return const Text('');
+                  if (value < 0 || value > daysRange) return const SizedBox.shrink();
+                  final date = cutoff.add(Duration(hours: (value * 24).round()));
+                  final String format = daysRange == 30 ? 'dd/MM' : 'MMM dd';
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 6),
+                    child: Text(
+                      DateFormat(format).format(date),
+                      style: GoogleFonts.inter(fontSize: 9, color: AppColors.textSecondary, fontWeight: FontWeight.bold),
+                    ),
+                  );
                 },
                 reservedSize: 22,
               ),
@@ -388,13 +396,13 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
           ),
           borderData: FlBorderData(show: false),
           minX: 0,
-          maxX: display.length == 1 ? 1.0 : (display.length - 1).toDouble(),
+          maxX: daysRange.toDouble(),
           minY: minY,
           maxY: maxY,
           lineBarsData: [
             LineChartBarData(
               spots: spots,
-              isCurved: display.length > 1,
+              isCurved: spots.length > 1,
               color: AppColors.primary,
               barWidth: 3.5,
               isStrokeCapRound: true,
@@ -410,7 +418,7 @@ class _WeightHistoryScreenState extends State<WeightHistoryScreen> {
                 },
               ),
               belowBarData: BarAreaData(
-                show: display.length > 1,
+                show: spots.length > 1,
                 gradient: LinearGradient(
                   colors: [
                     AppColors.primary.withValues(alpha: 0.22),

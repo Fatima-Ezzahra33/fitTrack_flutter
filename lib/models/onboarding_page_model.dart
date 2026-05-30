@@ -1,4 +1,4 @@
-/// FitTrack — Onboarding page data model
+/// FitTrack : Onboarding page data model
 ///
 /// Pure data class representing a single onboarding screen.
 /// Provides a static factory for the 4 default onboarding pages.

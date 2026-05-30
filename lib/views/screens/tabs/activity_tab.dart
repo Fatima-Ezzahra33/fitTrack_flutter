@@ -1,4 +1,4 @@
-/// FitTrack — Activity Tab (Redesigned)
+/// FitTrack : Activity Tab (Redesigned)
 ///
 /// Displays a searchable grid of seeded exercises.
 /// Tapping an exercise opens a bottom sheet for logging workout duration.
@@ -157,7 +157,7 @@ class _ActivityTabState extends State<ActivityTab> {
                             Navigator.pop(ctx);
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text('${exercise.name} recorded — ${(mins * exercise.caloriesPerMinute).round()} kcal burned!'),
+                                content: Text('${exercise.name} recorded! ${(mins * exercise.caloriesPerMinute).round()} kcal burned!'),
                                 backgroundColor: AppColors.success,
                               ),
                             );
@@ -417,7 +417,7 @@ class _ActivityTabState extends State<ActivityTab> {
                         ),
                       ),
                       Text(
-                        '${log.durationMinutes} min — ${log.caloriesBurned.round()} kcal — ${isToday ? "Today" : dateStr} $timeStr',
+                        '${log.durationMinutes} min | ${log.caloriesBurned.round()} kcal | ${isToday ? "Today" : dateStr} $timeStr',
                         style: GoogleFonts.inter(
                           fontSize: 11,
                           color: isDark ? AppColors.textDarkSecondary : AppColors.textSecondary,

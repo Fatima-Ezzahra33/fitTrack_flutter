@@ -1,4 +1,4 @@
-/// FitTrack — User data model
+/// FitTrack : User data model
 ///
 /// Represents a registered user with profile details, fitness goals,
 /// and preferences. This is a pure Dart class with NO Flutter/UI or

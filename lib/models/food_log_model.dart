@@ -1,4 +1,4 @@
-/// FitTrack — FoodLog data model
+/// FitTrack : FoodLog data model
 ///
 /// Represents what the user actually ate today.
 /// Nutritional values are auto-calculated from catalog and grams eaten.

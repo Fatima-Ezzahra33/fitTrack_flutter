@@ -1,4 +1,4 @@
-/// FitTrack — MealLog data model
+/// FitTrack : MealLog data model
 ///
 /// Represents a logged meal entry consumed by the user on a specific date.
 class MealLog {

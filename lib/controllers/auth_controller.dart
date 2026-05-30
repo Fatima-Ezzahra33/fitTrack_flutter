@@ -1,4 +1,4 @@
-/// FitTrack — Authentication controller
+/// FitTrack : Authentication controller
 ///
 /// Handles multi-step registration (3 screens), login with SQLite
 /// validation, and session management. Passwords are hashed with

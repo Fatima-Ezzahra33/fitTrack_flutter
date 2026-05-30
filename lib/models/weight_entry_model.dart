@@ -1,4 +1,4 @@
-/// FitTrack — Weight entry data model
+/// FitTrack : Weight entry data model
 ///
 /// Tracks a user's weight measurements over time. Each entry
 /// records the weight, date, and an optional note.

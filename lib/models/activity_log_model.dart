@@ -1,4 +1,4 @@
-/// FitTrack — ActivityLog data model
+/// FitTrack : ActivityLog data model
 ///
 /// Represents an workout/sport log entry recorded by the user.
 class ActivityLog {

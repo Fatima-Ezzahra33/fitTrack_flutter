@@ -1,4 +1,4 @@
-/// FitTrack — Page indicator widget
+/// FitTrack : Page indicator widget
 ///
 /// Animated dot indicators for page views (onboarding).
 /// Active dot animates wider and uses the primary color.

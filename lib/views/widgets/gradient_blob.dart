@@ -1,4 +1,4 @@
-/// FitTrack — Gradient blob widget
+/// FitTrack : Gradient blob widget
 ///
 /// A decorative organic-shaped gradient background used in the
 /// onboarding screens, painted with CustomPainter. Matches the

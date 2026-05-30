@@ -1,4 +1,4 @@
-/// FitTrack — Registration Step 2 (Profile Details)
+/// FitTrack : Registration Step 2 (Profile Details)
 ///
 /// Collects phone number, date of birth (using date picker), gender (dropdown),
 /// height (cm), and weight (kg). Features step indicator and validation,

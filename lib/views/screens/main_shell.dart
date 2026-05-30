@@ -1,4 +1,4 @@
-/// FitTrack — Main Application Shell
+/// FitTrack : Main Application Shell
 ///
 /// Implements the parent navigation frame. Houses the BottomNavigationBar and uses
 /// an IndexedStack to render the 5 core tabs (Home, Activity, Search, Camera, Profile)

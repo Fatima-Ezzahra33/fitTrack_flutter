@@ -1,4 +1,4 @@
-/// FitTrack — Food base data model
+/// FitTrack : Food base data model
 ///
 /// Represents an ingredient/food item in the database catalog with nutritional properties.
 class Food {

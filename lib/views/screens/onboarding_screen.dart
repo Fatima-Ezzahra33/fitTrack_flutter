@@ -1,4 +1,4 @@
-/// FitTrack — Onboarding Screen
+/// FitTrack : Onboarding Screen
 ///
 /// Implements a 4-step premium onboarding experience featuring custom
 /// organic gradient blobs (via GradientBlob), interactive icon elements,

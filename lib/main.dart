@@ -1,4 +1,4 @@
-/// FitTrack — Main entry point
+/// FitTrack : Main entry point
 ///
 /// Initializes preferences, SQLite database, and setups Providers
 /// for MVC Controllers. Sets light/dark themes dynamically using ThemeController.
@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'controllers/auth_controller.dart';
+import 'controllers/comparison_controller.dart';
 import 'controllers/food_controller.dart';
 import 'controllers/meal_log_controller.dart';
 import 'controllers/activity_log_controller.dart';
@@ -65,6 +66,12 @@ void main() async {
         ),
         ChangeNotifierProvider(
           create: (_) => WeightHistoryController(dbService: dbService),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => ComparisonController(
+            dbService: dbService,
+            prefsService: prefsService,
+          ),
         ),
         ChangeNotifierProvider(
           create: (_) => NavigationController(),

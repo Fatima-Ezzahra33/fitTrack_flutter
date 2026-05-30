@@ -1,4 +1,4 @@
-/// FitTrack — Theme controller
+/// FitTrack : Theme controller
 ///
 /// Manages the app's ThemeMode (light/dark/system) and persists
 /// the user's preference via PreferencesService.

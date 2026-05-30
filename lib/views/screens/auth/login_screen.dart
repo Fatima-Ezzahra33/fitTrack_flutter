@@ -1,4 +1,4 @@
-/// FitTrack — Login Screen
+/// FitTrack : Login Screen
 ///
 /// Implements SQLite-backed authentication. Uses CustomTextField for forms,
 /// shows validation errors, supports password visibility toggle, features

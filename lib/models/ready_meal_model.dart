@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-/// FitTrack — ReadyMeal data model
+/// FitTrack : ReadyMeal data model
 ///
 /// Represents a recipe / prepared meal containing multiple ingredients.
 class ReadyMeal {

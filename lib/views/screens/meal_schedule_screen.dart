@@ -1,4 +1,4 @@
-/// FitTrack — Meal Schedule Screen (New)
+/// FitTrack : Meal Schedule Screen 
 ///
 /// Features a weekly calendar strip, a chronological daily log view,
 /// and a premium fl_chart LineChart showing the weekly calorie history from SQLite.
@@ -429,7 +429,7 @@ class _MealScheduleScreenState extends State<MealScheduleScreen> {
                               ),
                             ),
                             Text(
-                              '${log.grams.round()}g — ${log.calories.round()} kcal',
+                              '${log.grams.round()}g : ${log.calories.round()} kcal',
                               style: GoogleFonts.inter(
                                 fontSize: 11,
                                 color: isDark ? AppColors.textDarkSecondary : AppColors.textSecondary,

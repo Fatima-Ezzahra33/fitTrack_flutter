@@ -1,4 +1,4 @@
-/// FitTrack — Ready Meal Detail Screen
+/// FitTrack : Ready Meal Detail Screen
 ///
 /// Premium French UI details page for a recipe / ready meal.
 /// Displays ingredients and allows the user to log the entire meal.

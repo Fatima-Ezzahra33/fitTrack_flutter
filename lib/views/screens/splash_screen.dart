@@ -1,4 +1,4 @@
-/// FitTrack — Splash screen
+/// FitTrack : Splash screen
 ///
 /// Welcoming landing screen with subtle fade-in logo animation and
 /// "Everybody Can Train" tag. Performs initial session/onboarding checks

@@ -1,4 +1,4 @@
-/// FitTrack — Registration Step 1 (Identity)
+/// FitTrack : Registration Step 1 (Identity)
 ///
 /// Collects user name, email, password, and confirmation. Matches the DIDPOOLFit
 /// Figma styling. Integrates StepProgressBar and routes to step 2 on valid inputs.

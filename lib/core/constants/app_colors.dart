@@ -1,4 +1,4 @@
-/// FitTrack — Application color palette
+/// FitTrack : Application color palette
 ///
 /// Inspired by the DIDPOOLFit Figma kit. All colors are defined as
 /// static constants to avoid magic values throughout the codebase.

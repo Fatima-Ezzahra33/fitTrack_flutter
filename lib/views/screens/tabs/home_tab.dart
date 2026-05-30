@@ -1,4 +1,4 @@
-/// FitTrack — Home Tab (Redesigned)
+/// FitTrack : Home Tab (Redesigned)
 ///
 /// Implements a premium dashboard interface in French. Displays greeting, current date,
 /// calculated BMI status card, Weight Overview Card (last recorded weight, trend arrow,
@@ -248,7 +248,7 @@ class _HomeTabState extends State<HomeTab> {
               ),
               const SizedBox(height: AppSizes.xl),
 
-              // Weight Overview Card (NEW)
+              // Weight Overview Card 
               Text(
                 'Weight Tracking',
                 style: GoogleFonts.poppins(
@@ -326,7 +326,7 @@ class _HomeTabState extends State<HomeTab> {
               ),
               const SizedBox(height: AppSizes.xl),
 
-              // Today's Summary Section (NEW)
+              // Today's Summary Section 
               Text(
                 'Today',
                 style: GoogleFonts.poppins(

@@ -1,4 +1,4 @@
-/// FitTrack — Next page button widget
+/// FitTrack : Next page button widget
 ///
 /// A circular button with a chevron icon and an animated circular
 /// progress border, used in the onboarding flow. The progress ring

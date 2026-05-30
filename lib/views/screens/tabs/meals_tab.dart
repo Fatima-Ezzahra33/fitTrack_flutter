@@ -1,4 +1,4 @@
-/// FitTrack — Meals Tab (New)
+/// FitTrack : Meals Tab 
 ///
 /// Full meal tracking tab: calorie progress, food log modal,
 /// today's meals grouped by type with swipe-to-delete,
@@ -212,7 +212,7 @@ class _MealsTabState extends State<MealsTab> {
                               ),
                             ),
                             Text(
-                              '${log.grams.round()}g — ${log.calories.round()} kcal',
+                              '${log.grams.round()}g | ${log.calories.round()} kcal',
                               style: GoogleFonts.inter(
                                 fontSize: 11,
                                 color: isDark ? AppColors.textDarkSecondary : AppColors.textSecondary,
@@ -480,7 +480,7 @@ class _MealsTabState extends State<MealsTab> {
                                 ),
                                 title: Text(food.name, style: GoogleFonts.poppins(fontWeight: FontWeight.w600, fontSize: 14)),
                                 subtitle: Text(
-                                  '${food.caloriesPer100g.round()} kcal/100g — ${food.category}',
+                                  '${food.caloriesPer100g.round()} kcal/100g | ${food.category}',
                                   style: GoogleFonts.inter(fontSize: 12, color: AppColors.textSecondary),
                                 ),
                                 onTap: () {

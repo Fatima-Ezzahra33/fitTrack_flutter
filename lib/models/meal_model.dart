@@ -1,4 +1,4 @@
-/// FitTrack — Meal (Food Catalog) data model
+/// FitTrack : Meal (Food Catalog) data model
 ///
 /// Represents a pre-populated or custom food item in the catalog.
 /// Displays nutritional values per 100g.

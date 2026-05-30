@@ -1,4 +1,4 @@
-/// FitTrack — Application sizing constants
+/// FitTrack : Application sizing constants
 ///
 /// Centralized spacing, border radius, icon size, and component
 /// dimension values. Use these instead of hardcoded pixel values

@@ -1,4 +1,4 @@
-/// FitTrack — Exercise data model
+/// FitTrack : Exercise data model
 ///
 /// Represents a single exercise with metadata such as category,
 /// duration, calories per minute, and step-by-step instructions.

@@ -1,4 +1,4 @@
-/// FitTrack — Step progress bar widget
+/// FitTrack : Step progress bar widget
 ///
 /// A horizontal 3-step progress indicator for the registration wizard.
 /// Shows numbered circles connected by lines. Completed steps are

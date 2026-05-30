@@ -1,4 +1,4 @@
-/// FitTrack — Application string constants
+/// FitTrack : Application string constants
 ///
 /// All user-facing text is centralized here for consistency
 /// and to simplify future internationalization (i18n).
@@ -31,7 +31,7 @@ class AppStrings {
   static const String onboardingDesc4 =
       "Don't worry if you have trouble determining your goals, we can help you determine your goals and track your goals";
 
-  // ── Auth — Login ──────────────────────────────────────────────────
+  // ── Auth : Login ──────────────────────────────────────────────────
   static const String welcomeBack = 'Welcome Back';
   static const String loginSubtitle = 'Sign in to continue your fitness journey';
   static const String email = 'Email';
@@ -41,7 +41,7 @@ class AppStrings {
   static const String noAccount = "Don't have an account? ";
   static const String register = 'Register';
 
-  // ── Auth — Registration ───────────────────────────────────────────
+  // ── Auth : Registration ───────────────────────────────────────────
   static const String createAccount = 'Create Account';
   static const String registerSubtitle = 'Start your fitness journey today';
   static const String step1Title = 'Your Identity';

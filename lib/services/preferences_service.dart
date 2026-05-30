@@ -1,4 +1,4 @@
-/// FitTrack — Preferences service (SharedPreferences)
+/// FitTrack : Preferences service (SharedPreferences)
 ///
 /// Wraps SharedPreferences for app-level settings:
 /// first-launch flag, theme mode, and logged-in user session.
@@ -13,7 +13,7 @@ class PreferencesService {
   static const String _keyThemeMode = 'theme_mode';
   static const String _keyCurrentUserId = 'current_user_id';
 
-  /// Initialize SharedPreferences — call from main.dart
+  /// Initialize SharedPreferences : call from main.dart
   Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
   }

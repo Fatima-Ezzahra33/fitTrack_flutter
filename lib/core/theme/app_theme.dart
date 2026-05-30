@@ -1,4 +1,4 @@
-/// FitTrack — Theme configuration
+/// FitTrack : Theme configuration
 ///
 /// Provides light and dark ThemeData using the AppColors palette
 /// and Google Fonts (Poppins for headings, Inter for body).

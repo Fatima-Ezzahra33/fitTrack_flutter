@@ -1,4 +1,4 @@
-/// FitTrack — Custom text field widget
+/// FitTrack : Custom text field widget
 ///
 /// A styled TextFormField with prefix icon, rounded corners,
 /// and automatic dark-mode adaptation. Used across all forms

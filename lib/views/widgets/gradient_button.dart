@@ -1,4 +1,4 @@
-/// FitTrack — Gradient button widget
+/// FitTrack : Gradient button widget
 ///
 /// A reusable button with a purple gradient background, rounded corners,
 /// subtle shadow, and optional loading state. Matches the DIDPOOLFit

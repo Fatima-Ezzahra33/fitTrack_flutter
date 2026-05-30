@@ -1,4 +1,4 @@
-/// FitTrack — Navigation controller
+/// FitTrack : Navigation controller
 ///
 /// Manages the active tab index for the BottomNavigationBar
 /// in the main shell. Uses ChangeNotifier for Provider integration.

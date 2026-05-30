@@ -1,4 +1,4 @@
-/// FitTrack — Registration Step 3 (Goal Selection)
+/// FitTrack : Registration Step 3 (Goal Selection)
 ///
 /// Implements visual goal selection cards with gradient accents. Conditionally displays
 /// Goal Weight text input if 'Lose Weight' or 'Gain Muscle' is chosen. Has loading states
