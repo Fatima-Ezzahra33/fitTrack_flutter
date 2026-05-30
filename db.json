@@ -35,6 +35,24 @@
       "theme_preference": "system",
       "created_at": "2026-05-30T15:31:53",
       "updated_at": "2026-05-30T15:31:53"
+    },
+    {
+      "id": 1780153668697,
+      "first_name": "Fatima-Ezzahra",
+      "last_name": "Abdessettar",
+      "email": "fzabdessettar@gmail.com",
+      "password_hash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "phone_number": "0612345678",
+      "date_of_birth": "2004-05-13T00:00:00.000",
+      "gender": "Female",
+      "height": 161,
+      "weight": 60,
+      "goal_weight": 50,
+      "goal_type": "lose_weight",
+      "profile_image_url": null,
+      "theme_preference": "system",
+      "created_at": "2026-05-30T16:07:48",
+      "updated_at": "2026-05-30T16:07:48"
     }
   ],
   "exercises": [
@@ -84,7 +102,64 @@
       "steps": "[\"Jump on your toes\",\"Keep elbows close to the body\",\"Breathe regularly\"]"
     }
   ],
-  "weight_entries": [],
+  "weight_entries": [
+    {
+      "id": 1780153697841,
+      "user_id": 1780153668697,
+      "weight": 61,
+      "date": "2026-04-14T00:00:00.000",
+      "note": null
+    },
+    {
+      "id": 1780153709929,
+      "user_id": 1780153668697,
+      "weight": 60,
+      "date": "2026-04-23T00:00:00.000",
+      "note": null
+    },
+    {
+      "id": 1780153718731,
+      "user_id": 1780153668697,
+      "weight": 58,
+      "date": "2026-05-06T00:00:00.000",
+      "note": null
+    },
+    {
+      "id": 1780153730617,
+      "user_id": 1780153668697,
+      "weight": 58,
+      "date": "2026-05-15T00:00:00.000",
+      "note": null
+    },
+    {
+      "id": 1780153739553,
+      "user_id": 1780153668697,
+      "weight": 56,
+      "date": "2026-05-21T00:00:00.000",
+      "note": null
+    },
+    {
+      "id": 1780153748933,
+      "user_id": 1780153668697,
+      "weight": 60,
+      "date": "2026-04-30T00:00:00.000",
+      "note": null
+    },
+    {
+      "id": 1780153763150,
+      "user_id": 1780153668697,
+      "weight": 57,
+      "date": "2026-05-27T00:00:00.000",
+      "note": null
+    },
+    {
+      "id": 1780153778006,
+      "user_id": 1780153668697,
+      "weight": 56,
+      "date": "2026-05-30T00:00:00.000",
+      "note": null
+    }
+  ],
   "foods": [
     {
       "name": "Apple",
@@ -579,9 +654,90 @@
       "fats": 12,
       "meal_type": "Breakfast",
       "date": "2026-05-30"
+    },
+    {
+      "id": 1780153878942,
+      "user_id": 1780153668697,
+      "food_id": null,
+      "ready_meal_id": 4,
+      "name": "Banana Honey Oatmeal",
+      "grams": 300,
+      "calories": 280,
+      "proteins": 18,
+      "carbs": 45,
+      "fats": 12,
+      "meal_type": "Breakfast",
+      "date": "2026-05-30"
+    },
+    {
+      "id": 1780153897738,
+      "user_id": 1780153668697,
+      "food_id": 39,
+      "ready_meal_id": null,
+      "name": "Almonds",
+      "grams": 100,
+      "calories": 579,
+      "proteins": 21,
+      "carbs": 22,
+      "fats": 49,
+      "meal_type": "Lunch",
+      "date": "2026-05-30"
+    },
+    {
+      "id": 1780153917580,
+      "user_id": 1780153668697,
+      "food_id": 32,
+      "ready_meal_id": null,
+      "name": "Brown Rice",
+      "grams": 165,
+      "calories": 183.2,
+      "proteins": 4.3,
+      "carbs": 38,
+      "fats": 1.5,
+      "meal_type": "Lunch",
+      "date": "2026-05-30"
+    },
+    {
+      "id": 1780153938023,
+      "user_id": 1780153668697,
+      "food_id": 42,
+      "ready_meal_id": null,
+      "name": "Dark Chocolate",
+      "grams": 60,
+      "calories": 327.6,
+      "proteins": 2.9,
+      "carbs": 36.6,
+      "fats": 18.6,
+      "meal_type": "Snack",
+      "date": "2026-05-30"
+    },
+    {
+      "id": 1780153957495,
+      "user_id": 1780153668697,
+      "food_id": 33,
+      "ready_meal_id": null,
+      "name": "Oats",
+      "grams": 90,
+      "calories": 350.1,
+      "proteins": 15.2,
+      "carbs": 59.7,
+      "fats": 6.2,
+      "meal_type": "Dinner",
+      "date": "2026-05-30"
     }
   ],
-  "activity_logs": [],
+  "activity_logs": [
+    {
+      "id": 1780153847520,
+      "user_id": 1780153668697,
+      "exercise_id": 1,
+      "name": "Running",
+      "category": "Cardio",
+      "duration_minutes": 30,
+      "calories_burned": 300,
+      "date_time": "2026-05-30 16:10"
+    }
+  ],
   "progress_comparisons": [
     {
       "id": 1780151330849,
@@ -590,6 +746,14 @@
       "after_image_path": "/data/user/0/com.example.fit_track/app_flutter/progress_images/after_1780151330843.jpg",
       "note": null,
       "created_at": "2026-05-30T15:28:50.848006"
+    },
+    {
+      "id": 1780154207038,
+      "user_id": 1780153668697,
+      "before_image_path": "/data/user/0/com.example.fit_track/app_flutter/progress_images/before_1780154207014.jpg",
+      "after_image_path": "/data/user/0/com.example.fit_track/app_flutter/progress_images/after_1780154207014.jpg",
+      "note": null,
+      "created_at": "2026-05-30T16:16:47.034642"
     }
   ]
 }

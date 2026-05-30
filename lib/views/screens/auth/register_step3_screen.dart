@@ -56,7 +56,7 @@ class _RegisterStep3ScreenState extends State<RegisterStep3Screen> {
       'title': AppStrings.improveSleep,
       'description': 'Enhance recovery and sleep quality',
       'icon': Icons.nightlight_round,
-      'imageUrl': 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=400&q=80',
+      'imageUrl': 'https://images.unsplash.com/photo-1666934209818-cd6a6d08bd8d?q=80&w=1364',
     },
   ];
 
