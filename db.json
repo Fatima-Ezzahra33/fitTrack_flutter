@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "id": 1780153668697,
+      "id": "1780153668697",
       "first_name": "Fatima-Ezzahra",
       "last_name": "Abdessettar",
       "email": "fzabdessettar@gmail.com",
@@ -17,6 +17,24 @@
       "theme_preference": "system",
       "created_at": "2026-05-30T16:07:48",
       "updated_at": "2026-05-30T16:07:48"
+    },
+    {
+      "id": 1781106848314,
+      "first_name": "Fatima-Ezzahra",
+      "last_name": "Abdessettar",
+      "email": "abdessettar.fatimaezzahra@etu.uae.ac.ma",
+      "password_hash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+      "phone_number": "0712345678",
+      "date_of_birth": "2002-06-20T00:00:00.000",
+      "gender": "Female",
+      "height": 159,
+      "weight": 70,
+      "goal_weight": 50,
+      "goal_type": "lose_weight",
+      "profile_image_url": null,
+      "theme_preference": "system",
+      "created_at": "2026-06-10T16:54:08",
+      "updated_at": "2026-06-10T16:54:08"
     }
   ],
   "exercises": [
@@ -68,59 +86,87 @@
   ],
   "weight_entries": [
     {
-      "id": 1780153697841,
+      "id": "1780153697841",
       "user_id": 1780153668697,
       "weight": 61,
       "date": "2026-04-14T00:00:00.000",
       "note": null
     },
     {
-      "id": 1780153709929,
+      "id": "1780153709929",
       "user_id": 1780153668697,
       "weight": 60,
       "date": "2026-04-23T00:00:00.000",
       "note": null
     },
     {
-      "id": 1780153718731,
+      "id": "1780153718731",
       "user_id": 1780153668697,
       "weight": 58,
       "date": "2026-05-06T00:00:00.000",
       "note": null
     },
     {
-      "id": 1780153730617,
+      "id": "1780153730617",
       "user_id": 1780153668697,
       "weight": 58,
       "date": "2026-05-15T00:00:00.000",
       "note": null
     },
     {
-      "id": 1780153739553,
+      "id": "1780153739553",
       "user_id": 1780153668697,
       "weight": 56,
       "date": "2026-05-21T00:00:00.000",
       "note": null
     },
     {
-      "id": 1780153748933,
+      "id": "1780153748933",
       "user_id": 1780153668697,
       "weight": 60,
       "date": "2026-04-30T00:00:00.000",
       "note": null
     },
     {
-      "id": 1780153763150,
+      "id": "1780153763150",
       "user_id": 1780153668697,
       "weight": 57,
       "date": "2026-05-27T00:00:00.000",
       "note": null
     },
     {
-      "id": 1780153778006,
+      "id": "1780153778006",
       "user_id": 1780153668697,
       "weight": 56,
       "date": "2026-05-30T00:00:00.000",
+      "note": null
+    },
+    {
+      "id": 1781106893370,
+      "user_id": 1781106848314,
+      "weight": 13,
+      "date": "2026-05-01T00:00:00.000",
+      "note": "first weight"
+    },
+    {
+      "id": 1781106904994,
+      "user_id": 1781106848314,
+      "weight": 70,
+      "date": "2026-06-01T00:00:00.000",
+      "note": null
+    },
+    {
+      "id": 1781106910479,
+      "user_id": 1781106848314,
+      "weight": 65,
+      "date": "2026-06-10T00:00:00.000",
+      "note": null
+    },
+    {
+      "id": 1781106943889,
+      "user_id": 1781106848314,
+      "weight": 71,
+      "date": "2026-05-21T00:00:00.000",
       "note": null
     }
   ],
@@ -606,7 +652,7 @@
   ],
   "meal_logs": [
     {
-      "id": 1780153162930,
+      "id": "1780153162930",
       "user_id": 1780151279734,
       "food_id": null,
       "ready_meal_id": 4,
@@ -620,7 +666,7 @@
       "date": "2026-05-30"
     },
     {
-      "id": 1780153878942,
+      "id": "1780153878942",
       "user_id": 1780153668697,
       "food_id": null,
       "ready_meal_id": 4,
@@ -634,7 +680,7 @@
       "date": "2026-05-30"
     },
     {
-      "id": 1780153897738,
+      "id": "1780153897738",
       "user_id": 1780153668697,
       "food_id": 39,
       "ready_meal_id": null,
@@ -648,7 +694,7 @@
       "date": "2026-05-30"
     },
     {
-      "id": 1780153917580,
+      "id": "1780153917580",
       "user_id": 1780153668697,
       "food_id": 32,
       "ready_meal_id": null,
@@ -662,7 +708,7 @@
       "date": "2026-05-30"
     },
     {
-      "id": 1780153938023,
+      "id": "1780153938023",
       "user_id": 1780153668697,
       "food_id": 42,
       "ready_meal_id": null,
@@ -676,7 +722,7 @@
       "date": "2026-05-30"
     },
     {
-      "id": 1780153957495,
+      "id": "1780153957495",
       "user_id": 1780153668697,
       "food_id": 33,
       "ready_meal_id": null,
@@ -688,11 +734,109 @@
       "fats": 6.2,
       "meal_type": "Dinner",
       "date": "2026-05-30"
+    },
+    {
+      "id": 1781106989645,
+      "user_id": 1781106848314,
+      "food_id": null,
+      "ready_meal_id": 4,
+      "name": "Banana Honey Oatmeal",
+      "grams": 300,
+      "calories": 280,
+      "proteins": 18,
+      "carbs": 45,
+      "fats": 12,
+      "meal_type": "Breakfast",
+      "date": "2026-06-10"
+    },
+    {
+      "id": 1781107008720,
+      "user_id": 1781106848314,
+      "food_id": 14,
+      "ready_meal_id": null,
+      "name": "Broccoli",
+      "grams": 500,
+      "calories": 170,
+      "proteins": 14,
+      "carbs": 33,
+      "fats": 2,
+      "meal_type": "Lunch",
+      "date": "2026-06-10"
+    },
+    {
+      "id": 1781107021118,
+      "user_id": 1781106848314,
+      "food_id": 19,
+      "ready_meal_id": null,
+      "name": "Bell Pepper",
+      "grams": 158,
+      "calories": 31.6,
+      "proteins": 1.4,
+      "carbs": 7.3,
+      "fats": 0.3,
+      "meal_type": "Lunch",
+      "date": "2026-06-10"
+    },
+    {
+      "id": 1781107047152,
+      "user_id": 1781106848314,
+      "food_id": 24,
+      "ready_meal_id": null,
+      "name": "Egg",
+      "grams": 200,
+      "calories": 310,
+      "proteins": 26,
+      "carbs": 2.2,
+      "fats": 22,
+      "meal_type": "Lunch",
+      "date": "2026-06-10"
+    },
+    {
+      "id": 1781107057884,
+      "user_id": 1781106848314,
+      "food_id": 32,
+      "ready_meal_id": null,
+      "name": "Brown Rice",
+      "grams": 120,
+      "calories": 133.2,
+      "proteins": 3.1,
+      "carbs": 27.6,
+      "fats": 1.1,
+      "meal_type": "Dinner",
+      "date": "2026-06-10"
+    },
+    {
+      "id": 1781107074247,
+      "user_id": 1781106848314,
+      "food_id": 9,
+      "ready_meal_id": null,
+      "name": "Pear",
+      "grams": 80,
+      "calories": 45.6,
+      "proteins": 0.3,
+      "carbs": 12.2,
+      "fats": 0.1,
+      "meal_type": "Snack",
+      "date": "2026-06-10"
+    },
+    {
+      "id": 1781107091515,
+      "user_id": 1781106848314,
+      "food_id": 29,
+      "ready_meal_id": null,
+      "name": "Chickpeas",
+      "grams": 400,
+      "calories": 656,
+      "proteins": 35.6,
+      "carbs": 109.6,
+      "fats": 10.4,
+      "meal_type": "Dinner",
+      "date": "2026-06-10"
     }
   ],
   "activity_logs": [
     {
-      "id": 1780153847520,
+      "id": "1780153847520",
       "user_id": 1780153668697,
       "exercise_id": 1,
       "name": "Running",
@@ -700,11 +844,31 @@
       "duration_minutes": 30,
       "calories_burned": 300,
       "date_time": "2026-05-30 16:10"
+    },
+    {
+      "id": 1781106966010,
+      "user_id": 1781106848314,
+      "exercise_id": 1,
+      "name": "Running",
+      "category": "Cardio",
+      "duration_minutes": 25,
+      "calories_burned": 250,
+      "date_time": "2026-06-10 16:56"
+    },
+    {
+      "id": 1781106974978,
+      "user_id": 1781106848314,
+      "exercise_id": 5,
+      "name": "Jump Rope",
+      "category": "Cardio",
+      "duration_minutes": 11,
+      "calories_burned": 132,
+      "date_time": "2026-06-10 16:56"
     }
   ],
   "progress_comparisons": [
     {
-      "id": 1780151330849,
+      "id": "1780151330849",
       "user_id": 1780151279734,
       "before_image_path": "/data/user/0/com.example.fit_track/app_flutter/progress_images/before_1780151330843.jpg",
       "after_image_path": "/data/user/0/com.example.fit_track/app_flutter/progress_images/after_1780151330843.jpg",
@@ -712,12 +876,20 @@
       "created_at": "2026-05-30T15:28:50.848006"
     },
     {
-      "id": 1780154207038,
+      "id": "1780154207038",
       "user_id": 1780153668697,
       "before_image_path": "/data/user/0/com.example.fit_track/app_flutter/progress_images/before_1780154207014.jpg",
       "after_image_path": "/data/user/0/com.example.fit_track/app_flutter/progress_images/after_1780154207014.jpg",
       "note": null,
       "created_at": "2026-05-30T16:16:47.034642"
+    },
+    {
+      "id": 1781107237124,
+      "user_id": 1781106848314,
+      "before_image_path": "/data/user/0/com.example.fit_track/app_flutter/progress_images/before_1781107237084.jpg",
+      "after_image_path": "/data/user/0/com.example.fit_track/app_flutter/progress_images/after_1781107237084.jpg",
+      "note": null,
+      "created_at": "2026-06-10T17:00:37.120607"
     }
   ]
 }

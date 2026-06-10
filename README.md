@@ -1,4 +1,4 @@
-# 🏋️ FitTrack - Votre Partenaire Santé & Fitness
+# FitTrack - Votre Partenaire Santé & Fitness
 
 <div align="center">
   <img src="assets/images/fit_track_logo.png" width="200" style="border-radius: 10px; margin: 5px;">
@@ -7,37 +7,43 @@
 <br>
 
 <div align="center">
-  <p><strong>Une application Flutter d'avant-garde intégrant une architecture MVC, la gestion d'état réactive via Provider, et des interactions asynchrones sécurisées avec une API REST.</strong></p>
+  <p><strong>Suivez votre alimentation, vos entraînements et votre progression corporelle, tout en un seul endroit.</strong></p>
 </div>
 
 ---
 
-## 📖 Sommaire
+## Sommaire
 
-1. [Présentation du Projet](#-présentation-du-projet)
-2. [Interface Utilisateur & Expérience (UX/UI)](#-interface-utilisateur--expérience-uxui)
-3. [Fonctionnalités Détaillées (Galerie de Captures)](#-fonctionnalités-détaillées-et-démonstration-visuelle)
+1. [Présentation du Projet](#présentation-du-projet)
+2. [Interface Utilisateur & Expérience (UX/UI)](#interface-utilisateur--expérience-uxui)
+3. [Fonctionnalités Détaillées (Galerie de Captures)](#fonctionnalités-détaillées-et-démonstration-visuelle)
    - [Onboarding & Inscription](#1-onboarding--inscription-multi-étapes)
    - [Tableau de Bord & Profil](#2-tableau-de-bord-dashboard--profil)
    - [Nutrition & Planification des Repas](#3-nutrition--planification-des-repas)
    - [Activités Sportives & Entraînements](#4-activités-sportives--entraînements)
    - [Suivi du Poids & Graphiques](#5-suivi-du-poids--graphiques-fl_chart)
    - [Évolution Corporelle & Appareil Photo](#6-évolution-corporelle--appareil-photo)
-4. [Architecture Logicielle & Design Patterns](#-architecture-logicielle--design-patterns)
-5. [Modélisation des Données & API](#-modélisation-des-données--api)
-6. [Instructions d'Installation et d'Évaluation](#-instructions-dinstallation-et-dévaluation)
+4. [Architecture Logicielle & Design Patterns](#architecture-logicielle--design-patterns)
+5. [Modélisation des Données & API](#modélisation-des-données--api)
+6. [Instructions d'Installation et d'Évaluation](#instructions-dinstallation-et-dévaluation)
 
 ---
 
-## 🎯 Présentation du Projet
+## Présentation du Projet
 
 **FitTrack** a été conçu pour répondre à la problématique de la fragmentation des applications de santé. L'objectif de ce projet était de construire un écosystème mobile **complet et robuste** réunissant : le calcul biométrique, la journalisation diététique, l'historique sportif, et l'analyse visuelle des progrès.
 
-Le projet a fait l'objet d'une rigueur particulière concernant la qualité du code (Clean Code), la réutilisabilité des composants UI (`widgets/`), et la fluidité des états asynchrones.
+---
+
+## Démonstration Vidéo
 
 ---
 
-## 🎨 Interface Utilisateur & Expérience (UX/UI)
+> **Démo vidéo :** [url]
+
+---
+
+## Interface Utilisateur & Expérience (UX/UI)
 
 L'interface a été entièrement conçue dans **Figma** avant développement, garantissant une cohérence visuelle rigoureuse et une approche *design-first*. Retrouvez le design initial ici : [Consulter le fichier Figma →](https://www.figma.com/design/x4lyzofeJ8vfj6lR1mJWj1/fitTrack?node-id=206-281&t=JmVzjrNzTG7Z53Rv-1)
 
@@ -46,9 +52,10 @@ Le système de design repose sur trois piliers :
 - **Mode Sombre Natif** : Bascule automatique ou manuelle entre un thème clair épuré et un thème sombre profond, optimisé pour la lisibilité et l'économie d'énergie.
 - **Micro-interactions** : Animations implicites, transitions partagées et retours haptiques pour une expérience fluide et immersive.
 - **Système typographique** : Association de `Poppins` (titres) et `Inter` (corps de texte) via Google Fonts, pour une hiérarchie visuelle claire et moderne.
+
 ---
 
-## 📱 Fonctionnalités Détaillées et Démonstration Visuelle
+## Fonctionnalités Détaillées et Démonstration Visuelle
 
 ### 1. Onboarding
 
@@ -68,6 +75,7 @@ Un formulaire d'inscription biométrique progressif. L'application calcule immé
 |:---:|:---:|:---:|
 | <img src="public/app/register-steps/step1-full.jpg" width="180"> | <img src="public/app/register-steps/step2.jpg" width="180"> | <img src="public/app/register-steps/step3-nothing-selected.jpg" width="180"> |
 | <img src="public/app/register-steps/step3-select-weight-loss-goal.jpg" width="180"> | | |
+
 ---
 
 ### 3. Tableau de Bord Principal (Dashboard)
@@ -170,9 +178,10 @@ Ce module renforce la prise de conscience de l'utilisateur en permettant la capt
 | <img src="public/app/progress/1.jpg" width="180"> | <img src="public/app/progress/2.jpg" width="180"> | <img src="public/app/progress/3.jpg" width="180"> |
 | <img src="public/app/progress/4.jpg" width="180"> | <img src="public/app/progress/5.jpg" width="180"> | <img src="public/app/progress/save-progress.jpg" width="180"> |
 | <img src="public/app/progress/details.jpg" width="180"> | | |
+
 ---
 
-## 🏗️ Architecture Logicielle & Design Patterns
+## Architecture Logicielle & Design Patterns
 
 L'application respecte les principes **SOLID** et adopte une architecture en couches strictement séparées, inspirée du pattern **MVVM (Model-View-ViewModel)**. Cette approche garantit une séparation claire des responsabilités, facilitant la maintenabilité, la testabilité et la scalabilité du projet.
 
@@ -192,7 +201,7 @@ L'application respecte les principes **SOLID** et adopte une architecture en cou
 
 ---
 
-## 🗄️ Modélisation des Données & API
+## Modélisation des Données & API
 
 Le projet a évolué d'une architecture SQLite locale vers une architecture **Client-Serveur RESTful** reposant sur `json-server`, simulant un backend de production complet. L'application communique exclusivement via des requêtes HTTP asynchrones (GET, POST, PUT, DELETE).
 
@@ -204,10 +213,11 @@ Le projet a évolué d'une architecture SQLite locale vers une architecture **Cl
 | `/exercises` | Catalogue complet des exercices avec variables caloriques |
 | `/foods` | Base de données des ingrédients individuels avec valeurs nutritionnelles |
 | `/ready_meals` | Recettes complètes avec macronutriments pré-calculés |
-| `/meal_logs` | Historique croisé : utilisateur × aliment × type de repas × date |
+| `/meal_logs` | Historique croisé : utilisateur x aliment x type de repas x date |
 | `/activity_logs` | Historique des sessions d'entraînement avec durée et calories |
 | `/weight_entries` | Série temporelle des pesées par utilisateur |
 | `/progress_comparisons` | Références des chemins locaux (`file:///`) des photos avant/après |
+
 <img src="public/json-server/terminal.png">
 
 | | |
@@ -216,9 +226,10 @@ Le projet a évolué d'une architecture SQLite locale vers une architecture **Cl
 | <img src="public/json-server/foods.png"> | <img src="public/json-server/ready-meals.png"> |
 | <img src="public/json-server/meal-logs.png"> |<img src="public/json-server/weught_entries.png">|
 | <img src="public/json-server/activity-logs.png">  | <img src="public/json-server/progress-comparaison.png"> |
+
 ---
 
-## ⚙️ Instructions d'Installation
+## Instructions d'Installation
 
 ### Prérequis
 
