@@ -10,7 +10,6 @@
   <p><strong>Suivez votre alimentation, vos entraînements et votre progression corporelle, tout en un seul endroit.</strong></p>
 </div>
 
----
 
 ## Sommaire
 
@@ -27,21 +26,18 @@
 5. [Modélisation des Données & API](#modélisation-des-données--api)
 6. [Instructions d'Installation et d'Évaluation](#instructions-dinstallation-et-dévaluation)
 
----
 
 ## Présentation du Projet
 
 **FitTrack** a été conçu pour répondre à la problématique de la fragmentation des applications de santé. L'objectif de ce projet était de construire un écosystème mobile **complet et robuste** réunissant : le calcul biométrique, la journalisation diététique, l'historique sportif, et l'analyse visuelle des progrès.
 
----
+
 
 ## Démonstration Vidéo
 
----
 
 > **Démo vidéo :** [url]
 
----
 
 ## Interface Utilisateur & Expérience (UX/UI)
 
@@ -53,7 +49,6 @@ Le système de design repose sur trois piliers :
 - **Micro-interactions** : Animations implicites, transitions partagées et retours haptiques pour une expérience fluide et immersive.
 - **Système typographique** : Association de `Poppins` (titres) et `Inter` (corps de texte) via Google Fonts, pour une hiérarchie visuelle claire et moderne.
 
----
 
 ## Fonctionnalités Détaillées et Démonstration Visuelle
 
@@ -76,8 +71,6 @@ Un formulaire d'inscription biométrique progressif. L'application calcule immé
 | <img src="public/app/register-steps/step1-full.jpg" width="180"> | <img src="public/app/register-steps/step2.jpg" width="180"> | <img src="public/app/register-steps/step3-nothing-selected.jpg" width="180"> |
 | <img src="public/app/register-steps/step3-select-weight-loss-goal.jpg" width="180"> | | |
 
----
-
 ### 3. Tableau de Bord Principal (Dashboard)
 
 Le tableau de bord constitue le **centre névralgique** de l'application. Dès la connexion, il agrège en temps réel les données provenant de l'ensemble des modules actifs : nutrition, activité physique et suivi du poids : pour offrir une vue synthétique et immédiate de la journée.
@@ -92,8 +85,6 @@ Le tableau de bord constitue le **centre névralgique** de l'application. Dès l
 |:---:|:---:|:---:|
 | <img src="public/app/home/first-login.jpg" width="180"> | <img src="public/app/home/home-populated.jpg" width="180"> | <img src="public/app/dark-mode/home.jpg" width="180"> |
 
----
-
 ### 4. Profil Utilisateur
 
 L'écran de profil centralise toutes les informations biométriques et personnelles enregistrées lors de l'inscription. L'utilisateur peut consulter et modifier ses données à tout moment, ce qui déclenche automatiquement un recalcul de l'objectif calorique et de l'IMC.
@@ -106,8 +97,6 @@ L'écran de profil centralise toutes les informations biométriques et personnel
 | | |
 |:---:|:---:|
 | <img src="public/app/profile/1.jpg" width="180"> | <img src="public/app/dark-mode/profile.jpg" width="180"> |
-
----
 
 ### 5. Nutrition & Planification des Repas
 
@@ -125,8 +114,6 @@ L'un des modules les plus complexes de l'application. Il repose sur une base de 
 | <img src="public/app/food/today-meals-empty-state.jpg" width="180"> | <img src="public/app/food/logging-food-individual-for-lunch.jpg" width="180"> | <img src="public/app/food/ready-meal.jpg" width="180"> |
 | <img src="public/app/food/full-day.jpg" width="180"> | <img src="public/app/dark-mode/meals-page.jpg" width="180"> | <img src="public/app/food/calories-per-week-stats.jpg" width="180">|
 
----
-
 ### 6. Activités Sportives & Entraînements
 
 Ce module met à disposition une bibliothèque d'exercices complète, navigable via une barre de recherche textuelle. Chaque exercice dispose d'une fiche détaillée et d'un mécanisme de calcul dynamique des calories brûlées, adapté à la durée et au profil de l'utilisateur.
@@ -141,8 +128,6 @@ Ce module met à disposition une bibliothèque d'exercices complète, navigable 
 |:---:|:---:|:---:|
 | <img src="public/app/exercises/list.jpg" width="180"> | <img src="public/app/exercises/exercise-details-to-save-workout.jpg" width="180"> | <img src="public/app/exercises/message-confirming-workout-saved.jpg" width="180"> |
 | <img src="public/app/exercises/history.jpg" width="180"> | | |
-
----
 
 ### 7. Suivi du Poids & Visualisation Graphique
 
@@ -159,8 +144,6 @@ Le module de suivi du poids offre une lecture analytique de l'évolution corpore
 |:---:|:---:|:---:|
 | <img src="public/app/weight/record-a-weight.jpg" width="180"> | <img src="public/app/weight/stats-30-days.jpg" width="180"> | <img src="public/app/weight/stats-3-months.jpg" width="180"> |
 | <img src="public/app/dark-mode/weight-stats.jpg" width="180"> | | |
-
----
 
 ### 8. Évolution Corporelle & Suivi Photo
 
@@ -179,7 +162,6 @@ Ce module renforce la prise de conscience de l'utilisateur en permettant la capt
 | <img src="public/app/progress/4.jpg" width="180"> | <img src="public/app/progress/5.jpg" width="180"> | <img src="public/app/progress/save-progress.jpg" width="180"> |
 | <img src="public/app/progress/details.jpg" width="180"> | | |
 
----
 
 ## Architecture Logicielle & Design Patterns
 
@@ -199,7 +181,6 @@ L'application respecte les principes **SOLID** et adopte une architecture en cou
 4. **Couche Présentation : Views**
    Widgets Flutter sans logique métier embarquée. Ils s'abonnent passivement aux Controllers via `context.watch()` et réagissent aux trois états fondamentaux : **chargement**, **succès** et **erreur**.
 
----
 
 ## Modélisation des Données & API
 
