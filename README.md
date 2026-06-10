@@ -31,7 +31,7 @@
 
 ## Démonstration Vidéo
 
-> **Démo vidéo :** https://canva.link/9nhsrmkqf68px9n
+> **Démo vidéo :** https://youtu.be/9u-x1rknnlI | https://canva.link/9nhsrmkqf68px9n
 
 ## Interface Utilisateur & Expérience (UX/UI)
 
